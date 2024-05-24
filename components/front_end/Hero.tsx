@@ -14,19 +14,21 @@ const Hero = () => {
         />
       </div>
 
-      <div
-        className=' flex flox-col justify-center items-start pt-5 font-extrabold text-4xl bg-grey w-full h-44  '
-      >
-        <div className='group'>
-          <span className='text-indigo-800'> Where is </span>
-          <span className='text-indigo-800 text-7xl group-hover:text-amber-400' style={{transform: 'rotate(-45deg)'}}> ? </span>
+      <div className=' flex flex-col justify-center items-center pt-8 font-extrabold text-4xl bg-grey w-full h-44 '>
+        <div className='group flex flex-col'>
+          
+          <div className="flex">
+            <span className='text-indigo-800'> Where is </span>
 
-          <div className='flex'>
+            <span className='px-5 transform rotate-45 text-indigo-800 text-7xl group-hover:text-amber-400  relative bottom-5 ' style={{transform: 'rotate(-45deg) '}}> ? </span> 
+          </div>
+
+          <div className='flex relative bottom-10'>
             <span className=' text-indigo-800'> my </span>
             <span className='text-indigo-800 text-7xl group-hover:text-amber-400'> BUS </span>
           </div>
-        </div>
-    
+
+        </div>    
       </div>
 
     </>
