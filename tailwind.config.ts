@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        'customfont1': '1.35rem', // Custom font size slightly larger than `text-lg` (1.125rem)
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
