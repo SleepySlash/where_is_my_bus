@@ -12,7 +12,7 @@ const Navbar = ({Route,BusDetails}:NavbarProps) => {
   return (
     <>
         <div 
-            className='fixed top-0 left-0 w-full flex justify-between items-strech p-5 shadow-lg bg-white '
+            className='fixed top-[-2px] left-0 w-full flex justify-between items-strech p-5 shadow-lg bg-white '
         >
             <Link
                 href="/"
