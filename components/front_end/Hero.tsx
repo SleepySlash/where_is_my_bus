@@ -5,6 +5,7 @@ import { Button } from '../ui/button'
 import location from '@/public/location.svg'
 import arrow_down from '@/public/arrow_down.svg'
 import {Jua,Manrope} from '@next/font/google'
+import { cn } from '@/lib/utils'
 
 const jua = Jua({
   weight: "400",
@@ -30,11 +31,11 @@ const Hero = () => {
 
       <div className="flex flex-col justify-start items-center pt-8 font-extrabold text-5xl bg-grey w-full h-96" >
 
-        <div className="group flex flex-col  text-violetBlue">
+        <div className={cn("group flex flex-col  text-violetBlue",jua.className )}>
           
           <div className="flex ">
             <span> Where is </span>
-            <span className=' transform rotate-45 font-medium text-7xl group-hover:text-yellowDark relative bottom-5  ' style={{transform: 'rotate(-35deg) '}}> ? </span> 
+            <span className=  ' transform rotate-45 font-medium text-7xl group-hover:text-yellowDark relative bottom-5  ' style={{transform: 'rotate(-35deg) '}}> ? </span> 
           </div>
 
           <div className='flex relative bottom-10'>
