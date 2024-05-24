@@ -21,7 +21,7 @@ const manrope = Manrope({
 const Hero = () => {
   return (
     < >
-      <div className='flex flex-row justify-center items-center w-full pt-16'>
+      <div className='flex flex-row justify-center items-center w-full pt-16 '>
         <Image
             src={hero} 
             alt='hero'
@@ -45,7 +45,7 @@ const Hero = () => {
 
         </div>    
 
-        <div className='flex flex-col justify-center items-center relative bottom-7 ' >
+        <div className={ cn('flex flex-col justify-center items-center relative bottom-7 ',  manrope.className) } >
           <Button variant="outline" className=" bg-yellowDark  w-80  gap-1 shadow-lg border-neutral-950 h-[3rem]" >
             <Image src={location} alt='location_marker' className='size-6 pt-1 mb-0.5' />
             <span className='text-2xl font-semibold' >Track Buses</span>
