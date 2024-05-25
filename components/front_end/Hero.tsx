@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button } from '../ui/button'
 import location from '@/public/location.svg'
 import arrow_down from '@/public/arrow_down.svg'
-import {Jua,Manrope} from '@next/font/google'
+import {Jua,Manrope} from "next/font/google"
 import { cn } from '@/lib/utils'
 
 const jua = Jua({
@@ -21,7 +21,7 @@ const manrope = Manrope({
 const Hero = () => {
   return (
     < >
-      <div className='flex flex-row justify-center items-center w-full pt-16 '>
+      <div className='flex flex-row justify-center items-center w-full pt-12 '>
         <Image
             src={hero} 
             alt='hero'
@@ -29,7 +29,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="flex flex-col justify-start items-center pt-9 font-extrabold text-5xl bg-grey w-full h-96" >
+      <div className="flex flex-col justify-start items-center pt-9 font-extrabold text-justify text-5xl bg-grey w-full h-[20.5rem]" >
 
         <div className={cn("group flex flex-col gap-7 text-violetBlue",jua.className )}>
           
@@ -47,15 +47,17 @@ const Hero = () => {
 
         </div>    
 
-        <div className={ cn('flex flex-col justify-between items-center relative bottom-14 ',  manrope.className) } >
-          <Button variant="outline" className=" bg-yellowDark rounded-lg w-[21rem]  gap-1 shadow-xl border-[1.5px] border-black h-[3rem]" >
-            <Image src={location} alt='location_marker' className='size-6 p-[0.2rem] ' />
-            <span className='text-customfont1 font-semibold' >Track Buses</span>
-          </Button>
+        <div className={ cn('flex flex-col items-strech relative bottom-14 text-textBlack ',  manrope.className) } >
+          <div className='flex flex-col items-center pr-2' >
+            <Button variant="outline" className=" bg-yellowDark rounded-lg w-[20.8rem]  justify-center items-strech gap-1 shadow-xl border-[1.5px] border-black h-[3.1rem]" >
+              <Image src={location} alt='location_marker' className='size-6 p-[0.2rem] ' />
+              <span className='text-customfont1 tracking-wide font-semibold' >Track Buses</span>
+            </Button>
 
-          <div className='flex flex-row gap-2 mt-2'>
-            <Image src={arrow_down} alt="arrowdown" className='object-contain size-4 mt-2  ' />
-            <span className='text-lg text-center font-semibold underline ' >Know More</span>
+            <div className='flex flex-row gap-2 mt-1'>
+              <Image src={arrow_down} alt="arrowdown" className='object-contain size-4 mt-2  ' />
+              <span className='text-lg text-black text-center font-semibold underline ' >Know More</span>
+            </div>
           </div>
         </div>
 

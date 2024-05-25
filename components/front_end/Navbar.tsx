@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar = ({Route,BusDetails}:NavbarProps) => {
   return (
     <>
-        <div className='fixed top-[-2px] left-0 w-full flex justify-between items-strech p-5 shadow-lg bg-white '>
+        <div className='fixed top-[-2px] left-0 w-full flex justify-between pb-4 items-strech shadow-xl bg-white z-50 '>
             <Link
                 href="/"
                 className=''
@@ -19,7 +19,7 @@ const Navbar = ({Route,BusDetails}:NavbarProps) => {
                 <Image
                     src={logo}
                     alt='logo'
-                    className='cursor-pointer h-9 w-9'
+                    className='cursor-pointer ml-6 h-8 w-8'
                 />
             </Link>
 
@@ -35,7 +35,7 @@ const Navbar = ({Route,BusDetails}:NavbarProps) => {
                 <Image
                     src={settings}
                     alt='settings'
-                    className='h-9 w-9'
+                    className='mr-5 pt-2 h-8 w-8'
                 />
             </Link>
 
