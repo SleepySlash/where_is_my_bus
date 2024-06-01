@@ -29,7 +29,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="flex flex-col justify-start items-center pt-9 font-extrabold text-justify text-5xl bg-grey w-full h-[20.5rem]" >
+      <div className="flex flex-col justify-start relative items-center pt-9 font-extrabold text-justify text-5xl bg-grey w-full h-[20.5rem]" >
 
         <div className={cn("group flex flex-col gap-7 text-violetBlue",jua.className )}>
           
@@ -51,7 +51,7 @@ const Hero = () => {
           <div className='flex flex-col items-center pr-2' >
             <Button variant="outline" className=" bg-yellowDark rounded-lg w-[20.8rem]  justify-center items-strech gap-1 shadow-xl border-[1.5px] border-black h-[3.1rem]" >
               <Image src={location} alt='location_marker' className='size-6 p-[0.2rem] ' />
-              <span className='text-customfont1 tracking-wide font-semibold' >Track Buses</span>
+              <span className='text-customfont_Sm tracking-wide font-semibold' >Track Buses</span>
             </Button>
 
             <div className='flex flex-row gap-2 mt-1'>
@@ -62,6 +62,8 @@ const Hero = () => {
         </div>
 
       </div>
+
+      
 
     </>
   )

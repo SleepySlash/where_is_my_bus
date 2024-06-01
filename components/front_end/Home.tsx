@@ -3,6 +3,8 @@ import {Jua,Manrope} from "next/font/google"
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import logo from '@/public/logo.svg'
+import {Carousel, CarouselContent, CarouselItem,  CarouselNext,  CarouselPrevious,} from "@/components/ui/carousel"
+
 
 const jua = Jua({
   weight: "400",
@@ -10,7 +12,7 @@ const jua = Jua({
 });
 
 const manrope = Manrope({
-  weight: "400",
+  weight: "400", 
   subsets: ['latin'],
 });
 
@@ -21,7 +23,7 @@ const Home = () => {
        <div className='flex flex-col justify-start items-center h-[23.1em] w-full bg-yellowLight px-2'>
         <span className={cn("font-semibold text-textGrey text-[1.375rem] pr-2 mt-[1.25rem]", jua.className)}>Welcome to</span>
         <div className='flex flex-col justify-center text-justify ' >
-          <span className={cn("font-extrabold text-violetBlue text-4xl pr-[-0.3rem] mt-[-0.3rem]", jua.className)}>Where is my bus?</span>
+          <span className={cn("font-extrabold text-violetBlue text-4xl pr-[-0.2rem] mt-[-0.3rem]", jua.className)}>Where is my bus?</span>
         </div>
 
         <div className='flex flex-col items-center justify-center p-4 text-justify '>
@@ -29,7 +31,21 @@ const Home = () => {
         </div>
 
         <Image src={logo} alt='logo' className='mr-1 size-[9.5rem]'/>
+        
 
+    </div>
+
+    <div className= { cn('flex flex-col items-center justify-start w-full h-[23.1em] ')} >
+    <span className={cn("text-violetBlue font-extrabold text-[2rem] violetBlue mt-4 ", jua.className)}>Our Features </span>
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem>item</CarouselItem>
+          <CarouselItem>item</CarouselItem>
+          <CarouselItem>item</CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious/>
+        <CarouselNext/>
+      </Carousel>
     </div>
         
       
