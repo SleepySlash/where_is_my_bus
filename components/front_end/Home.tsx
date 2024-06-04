@@ -45,39 +45,44 @@ const Home = () => {
 
     </div>
 
-    <div className= { cn('flex flex-col items-center w-[38vh] h-[23.1em] ')} >
+    <div className= { cn('flex flex-col items-center max-w-screen-md h-[23.1rem] ')} >
       <span className={cn("text-violetBlue font-extrabold text-[2rem] violetBlue mt-4 ", jua.className)}>Our Features </span>
 
       
-      <Carousel opts={{ loop:true, }}  className={cn('flex flex-row w-full ')} >
-        <CarouselContent className={cn('flex flex-row justify-between ')} >
+      <Carousel opts={{ loop:true, }}  className={cn('flex flex-row')} >
+        <CarouselContent className={cn('flex flex-grow items-center')} >
+          
           <CarouselItem> 
             <div className={cn('flex flex-row justify-center place-items-center')}>
             <Image src={carousel_item1svg} alt='student' className='w-[183px] h-[183px] mt-[0.9rem] '/>
             </div> 
-              <p className='max-w-full tracking-[-0.035em] w-[33vh] text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our solution is uniquely designed for college students, providing practical and student-focused functionalities that cater to their daily needs and challenges. </p>
+            
+            <p className='w-full p-1 tracking-[-0.035em]  text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our solution is uniquely designed for college students, providing practical and student-focused functionalities that cater to their daily needs and challenges. </p>
 
-            
-            
-            
           </CarouselItem>
 
           <CarouselItem> 
             <div className={cn('flex flex-row justify-center place-items-center')}>
             <Image src={carousel_item2svg} alt='student' className='w-[183px] h-[183px] mt-[0.9rem] '/>
             </div> 
+            
+            <p className='w-full p-1 tracking-[-0.035em]  text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our solution is uniquely designed for college students, providing practical and student-focused functionalities that cater to their daily needs and challenges. </p>
           </CarouselItem>
 
           <CarouselItem> 
             <div className={cn('flex flex-row justify-center place-items-center')}>
             <Image src={carousel_item3svg} alt='student' className='w-[183px] h-[183px] mt-[0.8rem] '/>
             </div> 
+            
+            <p className='w-full p-1 tracking-[-0.035em]  text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our solution is uniquely designed for college students, providing practical and student-focused functionalities that cater to their daily needs and challenges. </p>
           </CarouselItem>
 
           <CarouselItem> 
             <div className={cn('flex flex-row justify-center place-items-center')}>
             <Image src={carousel_item4} alt='student' className='w-[285px] h-[183px] mt-[0.9rem] '/>
             </div> 
+            
+            <p className='w-full p-1 tracking-[-0.035em]  text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our solution is uniquely designed for college students, providing practical and student-focused functionalities that cater to their daily needs and challenges. </p>
           </CarouselItem>
           
         </CarouselContent>
