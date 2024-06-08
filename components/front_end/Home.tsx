@@ -1,56 +1,51 @@
-import React from 'react'
-import { Jua, Manrope, Kumbh_Sans } from "next/font/google"
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import logo from '@/public/logo.svg'
-
-
-import carousel_item1svg from '@/public/carousel_item1.svg'
-import carousel_item2svg from '@/public/carousel_item2.svg'
-import carousel_item3svg from '@/public/carousel_item3.svg'
-import carousel_item4 from '@/public/carousel_item4.png'
-
-
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
+import React from 'react';
+import { Jua, Manrope, Kumbh_Sans } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import logo from '@/public/logo.svg';
+import carousel_item1svg from '@/public/carousel_item1.svg';
+import carousel_item2svg from '@/public/carousel_item2.svg';
+import carousel_item3svg from '@/public/carousel_item3.svg';
+import carousel_item4 from '@/public/carousel_item4.png';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const jua = Jua({
-  weight: "400",
+  weight: '400',
   subsets: ['latin'],
 });
 
 const manrope = Manrope({
-  weight: "500",
+  weight: '500',
   subsets: ['latin'],
 });
 
 const kumbh_sans_darker = Kumbh_Sans({
-  weight: "700",
+  weight: '700',
   subsets: ['latin'],
 });
 const kumbh_sans_lighter = Kumbh_Sans({
-  weight: "400",
+  weight: '400',
   subsets: ['latin'],
 });
 
-
 const Home = () => {
   return (
-    <>
-      <div className='flex flex-col justify-start items-center h-[24em] w-full bg-yellowLight px-2'>
-        <span className={cn("font-semibold text-textGrey text-[1.375rem] pr-2 mt-[1.25rem]", jua.className)}>Welcome to</span>
-        <div className='flex flex-col justify-center text-justify ' >
-          <span className={cn("font-extrabold text-violetBlue text-4xl pr-[-0.2rem] mt-[-0.3rem]", jua.className)}>Where is my bus?</span>
+    <div className="w-full overflow-hidden">
+      <div className='flex flex-col justify-start items-center h-[24em] md:w-full bg-yellowLight px-2'>
+        <span className={cn('font-semibold text-textGrey text-[1.375rem] pr-2 mt-[1.25rem]', jua.className)}>Welcome to</span>
+        <div className='flex flex-col justify-center text-justify'>
+          <span className={cn('font-extrabold text-violetBlue text-4xl pr-[-0.2rem] mt-[-0.3rem]', jua.className)}>Where is my bus?</span>
         </div>
 
-        <div className='flex flex-col items-center justify-center p-4 text-justify '>
+        <div className='flex flex-col items-center justify-center p-4 text-justify'>
           <p className={cn('max-w-full tracking-[-0.035em] text-justify text-[0.88rem] mt-[0.85rem] leading-snug relative', manrope.className)}>Your ultimate companion for hassle-free college commutes! Designed with students in mind, our progressive web application provides real-time tracking for college buses, ensuring you never miss a ride. Join us and experience the convenience of knowing exactly where your bus is, every step of the way!</p>
         </div>
 
         <Image src={logo} alt='logo' className='mr-1 size-[9.3rem]' />
       </div>
 
-      <div className={cn('flex flex-col items-center max-w-screen-md h-[23.1rem] ')} >
-        <span className={cn("text-violetBlue font-extrabold text-[2.1rem] violetBlue mt-4 ", jua.className)}>Our Features </span>
+      <div className={cn('flex flex-col items-center max-w-screen-md h-[23.1rem]')}>
+        <span className={cn('text-violetBlue font-extrabold text-[2.1rem] violetBlue mt-4', jua.className)}>Our Features</span>
 
         <Carousel opts={{ loop: true, }} className={cn('flex flex-row')} >
           <CarouselContent className={cn('flex flex-grow items-center')} >
@@ -98,17 +93,8 @@ const Home = () => {
           <CarouselNext />
         </Carousel>
       </div>
+    </div>
+);
+};
 
-      <div className='flex flex-row justify-between bg-greyfooter text-white '>
-        <div className='flex flex-col justify-center items-start w-64 mt-5    '>
-          <p className='text-yellowDark pl-4 text-[12px] '>About us</p>
-          <div className='flex flex-col items-center justify-center pl-4 text-justify '>
-            <p className={cn('tracking-[-0.035em] text-justify text-[10px] leading-snug relative', manrope.className)}>Our mission is to provide students with the tools they need to travel efficiently and stress-free. Gone are the days of waiting at the bus stop unsure of when your ride will arrive. With &quot;Where is my bus?&quot;, you&apos;ll have real-time tracking information at your fingertips, ensuring you never miss a bus again.  </p>
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
-
-export default Home
+export default Home;

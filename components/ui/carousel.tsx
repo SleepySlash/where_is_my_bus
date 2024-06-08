@@ -183,7 +183,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         variant={variant}
         size={size}
         className={cn(
-          "absolute h-8 w-8 rounded-full border-0 ",
+          "absolute h-8 w-8 rounded-full border-0 mb-[4.35rem] ",
           orientation === "horizontal"
             ? "left-4 top-1/2 -translate-y-1/2"
             : "top-4 left-1/2 -translate-x-1/2 rotate-90",
@@ -193,7 +193,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         onClick={scrollPrev}
         {...props}
       >
-        <Image src={leftArrow} alt="previous slide" className="h-[1.2rem] w-[1.2rem] mb-[4.35rem] " />
+        <Image src={leftArrow} alt="previous slide" className="h-[1.2rem] w-[1.2rem]  " />
         <span className="sr-only">Previous slide</span>
       </Button>
     )
@@ -211,7 +211,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         variant={variant}
         size={size}
         className={cn(
-          "absolute h-8 w-8 rounded-full border-0 ",
+          "absolute h-8 w-8 rounded-full border-0 mb-[4.35rem] ",
           orientation === "horizontal"
             ? "right-4 top-1/2 -translate-y-1/2"
             : "bottom-4 left-1/2 -translate-x-1/2 rotate-90",
@@ -221,7 +221,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         onClick={scrollNext}
         {...props}
       >
-        <Image src={rightArrow} alt="next slide" className="h-[1.2rem] w-[1.2rem] mb-[4.35rem] " />
+        <Image src={rightArrow} alt="next slide" className="h-[1.2rem] w-[1.2rem]  " />
         <span className="sr-only">Next slide</span>
       </Button>
     )
