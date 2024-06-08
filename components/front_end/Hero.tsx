@@ -21,7 +21,7 @@ const manrope = Manrope({
 
 
 const Hero = () => {
-
+  
   const router = useRouter();
 
   return (
