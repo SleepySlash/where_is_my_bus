@@ -9,6 +9,7 @@ const page = () => {
       <Navbar/>
       <Hero/>
       <Home/>
+      
     </>
   )
 }

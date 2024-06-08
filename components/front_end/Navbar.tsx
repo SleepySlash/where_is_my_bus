@@ -15,6 +15,7 @@ const Navbar = ({Route,BusDetails}:NavbarProps) => {
             <Link
                 href="/"
                 className=''
+                passHref
             >
                 <Image
                     src={logo}

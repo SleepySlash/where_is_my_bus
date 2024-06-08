@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import Com from "@/components/Com";
+import Com from "@/components/front_end/Com";
 // export default function Loading() {
 //   const [seconds, setSeconds] = useState("Loading");
 
