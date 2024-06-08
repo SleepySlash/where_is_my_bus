@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import hero from '@/public/hero.png'
 import Image from 'next/image'
@@ -6,6 +7,7 @@ import location from '@/public/location.svg'
 import arrow_down from '@/public/arrow_down.svg'
 import {Jua,Manrope} from "next/font/google"
 import { cn } from '@/lib/utils'
+import { useRouter } from 'next/navigation'
 
 const jua = Jua({
   weight: "400",
@@ -19,6 +21,9 @@ const manrope = Manrope({
 
 
 const Hero = () => {
+
+  const router = useRouter();
+
   return (
     < >
       <div className='flex flex-row justify-center items-center w-full pt-12 '>
@@ -49,7 +54,7 @@ const Hero = () => {
 
         <div className={ cn('flex flex-col items-strech relative bottom-14 text-textBlack ',  manrope.className) } >
           <div className='flex flex-col items-center pr-2' >
-            <Button variant="outline" className=" bg-yellowDark rounded-lg w-[20.8rem]  justify-center items-strech gap-1 shadow-xl border-[1.5px] border-black h-[3.1rem]" >
+            <Button variant="outline" onClick={()=>router.push("/signup")} className=" bg-yellowDark rounded-lg w-[20.8rem]  justify-center items-strech gap-1 shadow-xl border-[1.5px] border-black h-[3.1rem]  " >
               <Image src={location} alt='location_marker' className='size-6 p-[0.2rem] ' />
               <span className='text-customfont_Sm tracking-wide font-semibold' >Track Buses</span>
             </Button>

@@ -32,6 +32,7 @@ const config = {
         violetBlue: "#3D408A",
         textBlack: "#181818",
         textGrey: "#545656",
+        greyfooter:"#252525",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
