@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-0">
           <Image
-            src={"/assets/Ellipse.svg"}
+            src={"/Ellipse.svg"}
             alt={"Ellipse"}
             width={767}
             height={10}
