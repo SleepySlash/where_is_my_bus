@@ -8,18 +8,37 @@ export function cn(...inputs: ClassValue[]) {
 const colleges = [
   {
     name: "MLRIT",
-    id:1,
+    id: 1,
   },
   {
-    name:"CMR",
-    id:2,
-  },{
-    name:'MLRITM',
-    id:3,
+    name: "CMR",
+    id: 2,
   },
   {
-    name:"BVRIT",
-    id:4,
-  }
+    name: "MLRITM",
+    id: 3,
+  },
+  {
+    name: "BVRIT",
+    id: 4,
+  },
 ];
-export default colleges
+const colleges2 = [
+  {
+    name: "MLRIT",
+    id: 1,
+  },
+  {
+    name: "CMR",
+    id: 2,
+  },
+  {
+    name: "MLRITM",
+    id: 3,
+  },
+  {
+    name: "BVRIT",
+    id: 4,
+  },
+];
+export default colleges;
