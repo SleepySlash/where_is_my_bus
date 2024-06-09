@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import colleges from "@/lib/utils";
+import {colleges} from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Selectcollege } from "./Selectcolleg";

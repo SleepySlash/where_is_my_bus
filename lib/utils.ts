@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const colleges = [
+export const colleges = [
   {
     name: "MLRIT",
     id: 1,
@@ -23,22 +23,18 @@ const colleges = [
     id: 4,
   },
 ];
-const colleges2 = [
+export const gender_ = [
   {
-    name: "MLRIT",
-    id: 1,
+    name:'Male',
+    id:1,
   },
   {
-    name: "CMR",
-    id: 2,
+    name:'Female',
+    id:2,
   },
   {
-    name: "MLRITM",
-    id: 3,
-  },
-  {
-    name: "BVRIT",
-    id: 4,
-  },
+    name:'Other..',
+    id:3,
+  }
 ];
-export default colleges;
+
