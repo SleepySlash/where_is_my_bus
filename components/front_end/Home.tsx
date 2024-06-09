@@ -70,7 +70,7 @@ const Home = () => {
 
               <span className={cn("text-violetBlue tracking-tight text-[1.4rem] font-extrabold violetBlue left-28 top-3 relative ", kumbh_sans_darker.className)}>Reliable Tracking </span>
 
-              <div className='w-[88%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our GPS technology ensures precise location tracking for accurate bus location updates. Continuous tracking ensures reliable updates even in areas with network issues. </div>
+              <div className={cn('w-[86%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative', kumbh_sans_lighter.className)}>Our GPS technology ensures precise location tracking for accurate bus location updates. Continuous tracking ensures reliable updates even in areas with network issues. </div>
             </CarouselItem>
 
             <CarouselItem>
@@ -80,7 +80,7 @@ const Home = () => {
 
               <span className={cn("text-violetBlue tracking-tight text-[1.4rem] font-extrabold violetBlue left-24 top-3 relative ", kumbh_sans_darker.className)}>Real time precision </span>
 
-              <div className='w-[88%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our system offers real-time precision, ensuring students can efficiently plan their journeys with accurate and up-to-date bus locations, reducing waiting times.</div>
+              <div className={cn('w-[86%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative', kumbh_sans_lighter.className)}>Our system offers real-time precision, ensuring students can efficiently plan their journeys with accurate and up-to-date bus locations, reducing waiting times.</div>
             </CarouselItem>
 
             <CarouselItem>
@@ -90,7 +90,7 @@ const Home = () => {
 
               <span className={cn("text-violetBlue tracking-tight text-[1.4rem] font-extrabold violetBlue left-24 top-3 relative ", kumbh_sans_darker.className)}>Secure data handling </span>
 
-              <div className='w-[88%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative'>Our encryption technology safeguards student location data, ensuring security and privacy. This ensures peace of mind for users, knowing their information is protected.  </div>
+              <div className={cn('w-[86%] left-3 right-3 tracking-[-0.02em] font-medium text-justify text-[0.83rem] mt-[0.85rem] leading-tight relative', kumbh_sans_lighter.className)} >Our encryption technology safeguards student location data, ensuring security and privacy. This ensures peace of mind for users, knowing their information is protected.  </div>
             </CarouselItem>
           </CarouselContent>
           <CarouselPrevious />
@@ -98,13 +98,16 @@ const Home = () => {
         </Carousel>
       </div>
 
-      <div className='flex flex-row justify-between text-white bg-greyfooter '>
+      <div className='flex flex-row justify-between text-white max-w-screen bg-greyfooter '>
         <div className='flex flex-col items-start justify-center w-64 mt-5 '>
           <p className='text-yellowDark pl-4 text-[12px] '>About us</p>
           <div className='flex flex-col items-center justify-center pl-4 text-justify '>
-            <p className={cn('tracking-[-0.040em] text-justify text-[11px] leading-snug relative',manrope.className)}>Our mission is to provide students with the tools they need to travel efficiently and stress-free. Gone are the days of waiting at the bus stop unsure of when your ride will arrive. With &quot;Where is my bus?&quot;, you&apos;ll have real-time tracking information at your fingertips, ensuring you never miss a bus again.  </p>
+            <p className={cn('tracking-[-0.02em] text-justify text-[11px] leading-snug relative',manrope.className)}>Our mission is to provide students with the tools they need to travel efficiently and stress-free. Gone are the days of waiting at the bus stop unsure of when your ride will arrive. With &quot;Where is my bus?&quot;, you&apos;ll have real-time tracking information at your fingertips, ensuring you never miss a bus again.  </p>
           </div>
         </div>
+
+        <div></div>
+
       </div>
     </div>
   );
