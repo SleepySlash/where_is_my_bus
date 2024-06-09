@@ -1,5 +1,5 @@
 import * as React from "react";
-import {colleges} from "@/lib/utils";
+import {gender_} from "@/lib/utils";
 import {
   Select,
   SelectContent,
@@ -9,24 +9,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function Selectcollege() {
+export function Selectgender() {
   return (
     <Select>
-      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A]">
+      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] w-[135px]">
         <SelectValue
-          placeholder="Select College"
+          placeholder="Select Gender"
           className="focus:outline-[#3D408A] outline-[#3D408A]"
         />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {colleges.map((clg) => (
+          {gender_.map((gen) => (
             <SelectItem
-              key={clg.id}
-              value={clg.name}
+              key={gen.id}
+              value={gen.name}
               className="focus:outline-none"
             >
-              {clg.name}
+              {gen.name}
             </SelectItem>
           ))}
         </SelectGroup>
