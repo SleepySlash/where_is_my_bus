@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function SelectCollege() {
+export function Selectcollege() {
   return (
     <Select>
       <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A]">

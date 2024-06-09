@@ -102,7 +102,7 @@ const Home = () => {
         <div className='flex flex-col items-start justify-center w-64 mt-5 '>
           <p className='text-yellowDark pl-4 text-[12px] '>About us</p>
           <div className='flex flex-col items-center justify-center pl-4 text-justify '>
-            <p className={cn('tracking-[-0.035em] text-justify text-[10px] leading-snug relative',manrope.className)}>Our mission is to provide students with the tools they need to travel efficiently and stress-free. Gone are the days of waiting at the bus stop unsure of when your ride will arrive. With &quot;Where is my bus?&quot;, you&apos;ll have real-time tracking information at your fingertips, ensuring you never miss a bus again.  </p>
+            <p className={cn('tracking-[-0.040em] text-justify text-[11px] leading-snug relative',manrope.className)}>Our mission is to provide students with the tools they need to travel efficiently and stress-free. Gone are the days of waiting at the bus stop unsure of when your ride will arrive. With &quot;Where is my bus?&quot;, you&apos;ll have real-time tracking information at your fingertips, ensuring you never miss a bus again.  </p>
           </div>
         </div>
       </div>

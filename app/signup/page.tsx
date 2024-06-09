@@ -1,49 +1,29 @@
+"use client";
+import Image from "next/image";
 import Navbar from "@/components/front_end/Navbar";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import colleges from "@/lib/utils";
-import { SelectCollege } from "@/components/front_end/Selectcolleg";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-export default function Signup() {
+import { Signup } from "@/components/front_end/Signup";
+export default function Home() {
   return (
-    <>
-      <Navbar/>
-      <div className="grid relative w-full max-w-sm items-center gap-[1rem]">
-        <Label htmlFor="mobilenumber" className=" text-[#3D408A]">
-          College Name
-        </Label>
-        <SelectCollege />
-        <Label htmlFor="mobilenumber" className=" text-[#3D408A]">
-          Mobile Number
-        </Label>
-        <Input
-          type="number"
-          id="email"
-          placeholder="Enter Mobile number"
-          className="focus:outline-[#3D408A]"
-        />
-        <div className="flex items-end justify-end right-0">
-          <p className="text-sm underline">Send OTP</p>
+    <div className="relative flex flex-col min-h-screen md:hidden">
+      <Navbar />
+      <div className="flex flex-col items-start mt-[4rem] p-[1.5rem] ">
+        <p className=" font-semibold text-[#919191] text-xl">
+          Let{"'"}s Get Started!
+        </p>
+        <p className="text-[#3D408A] text-5xl font-semibold">Sign Up</p>
+        <div className="p-2 pt-[2rem] w-full flex items-center justify-center z-20">
+          <Signup />
         </div>
-        <Label htmlFor="otp" className=" text-[#3D408A]">
-          OTP
-        </Label>
-        <Input
-          type="number"
-          id="otp"
-          placeholder="Enter OTP"
-          className="focus:outline-[#3D408A]"
-        />
-
-        <Button variant={"blueg"} size={"blueg"}>
-          Sign Up
-        </Button>
-        <div className="center p-4">
-          <p className="text-sm">Are you an Administrator?<span className="text-[#3D408A] underline">Login <Link href="/admin">Here</Link></span></p>
+        <div className="absolute bottom-0 left-0 right-0 z-0">
+          <Image
+            src={"/assets/Ellipse.svg"}
+            alt={"Ellipse"}
+            width={767}
+            height={10}
+          />
         </div>
+        {/* <button type="button" className="h-auto cursor-pointer" onClick={()=>console.log('CLicked')}>sendotp</button> */}
       </div>
-    </>
+    </div>
   );
 }
