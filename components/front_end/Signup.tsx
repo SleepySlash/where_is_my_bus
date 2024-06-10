@@ -18,7 +18,7 @@ const kumbh_sans_lighter = Kumbh_Sans({
 
 export function Signup() {
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-[1rem] relative")}>
+    <div className={cn("grid w-full max-w-sm items-center gap-[1.25rem] relative")}>
       <div className="right-0 flex flex-col justify-center gap-1">
         <Label htmlFor="collegeName" className={cn(" text-[#3D408A] font-semibold pl-2",kumbh_sans_darker.className)}>
           College Name
@@ -52,7 +52,7 @@ export function Signup() {
         />
       </div>
 
-      <div className={cn("flex flex-col top-24 relative ",kumbh_sans_darker.className)}>
+      <div className={cn("flex flex-col top-32 relative ",kumbh_sans_darker.className)}>
         
         <Button
           variant={"blueg"}
