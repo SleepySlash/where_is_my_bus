@@ -52,7 +52,7 @@ export function Signup() {
         />
       </div>
 
-      <div className={cn("flex flex-col top-28 relative ",kumbh_sans_darker.className)}>
+      <div className={cn("flex flex-col top-24 relative ",kumbh_sans_darker.className)}>
         
         <Button
           variant={"blueg"}
