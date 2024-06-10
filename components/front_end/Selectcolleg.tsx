@@ -9,13 +9,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+
 export function Selectcollege() {
   return (
-    <Select>
-      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A]">
+    <Select >
+      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
         <SelectValue
           placeholder="Select College"
-          className="focus:outline-[#3D408A] outline-[#3D408A]"
+          className="focus:outline-[#3D408A] outline-[#3D408A]  "
         />
       </SelectTrigger>
       <SelectContent>
