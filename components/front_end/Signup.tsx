@@ -57,15 +57,15 @@ export function Signup() {
       </div>
 
       <div className={cn("flex flex-col top-32 relative ",kumbh_sans_medium.className)}>
-        
-        <Button
-          variant={"blueg"}
-          size={"blueg"}
-          className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem] ")}
-          onClick={() => console.log("Clicked")}
-        >
-          Sign Up
-        </Button>
+        <Link href="/signup/setup" className="flex flex-col" >
+          <Button
+            variant={"blueg"}
+            size={"blueg"}
+            className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem] ")}
+          >
+            Sign Up
+          </Button>
+        </Link>
         
         <div className="px-4 pt-2 text-violetBlue relative items-center">
           <p className="text-sm font-semibold">

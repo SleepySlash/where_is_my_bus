@@ -1,14 +1,16 @@
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {cn, colleges} from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import Link from "next/link";
-import { Selectcollege } from "./Selectcolleg";
+import { Selectgender } from "./Selectgender";
 import {Kumbh_Sans } from 'next/font/google';
-
-
+import { cn } from "@/lib/utils";
 const kumbh_sans_darker = Kumbh_Sans({
   weight: '700',
+  subsets: ['latin'],
+});
+const kumbh_sans_medium = Kumbh_Sans({
+  weight: '600',
   subsets: ['latin'],
 });
 const kumbh_sans_lighter = Kumbh_Sans({
@@ -16,43 +18,49 @@ const kumbh_sans_lighter = Kumbh_Sans({
   subsets: ['latin'],
 });
 
-export function Admin_Signup() {
+const SetupAdmin = () => {
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-[1.25rem] relative")}>
-      <div className="right-0 flex flex-col justify-center gap-1">
-        <Label htmlFor="collegeName" className={cn(" text-[#3D408A] font-semibold pl-2",kumbh_sans_darker.className)}>
-          College Name
+    <div className="grid relative w-full max-w-sm items-center gap-[1.25rem]">
+      <div className="flex flex-col gap-[0.5rem]  ">
+        <Label htmlFor="firstname" className={cn("text-[#3D408A] pl-2 ",kumbh_sans_darker.className)}>
+          First Name
         </Label>
-        <Selectcollege />
-      </div>
-      <div className={cn("right-0 flex flex-col gap-1 justify-center",kumbh_sans_darker.className)}>
-        <Label htmlFor="mobilenumber" className=" text-[#3D408A] font-semibold pl-2">
-          Mobile Number
-        </Label>  
         <Input
-          type="number" 
-          id="email"
-          placeholder="Enter Mobile number"
-          className="focus:outline-[#3D408A] "
+          type="text"
+          id="fname"
+          placeholder="Enter your first name"
+          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
         />
-        <div className="flex flex-row items-end justify-end" >
-          <p className="text-sm font-bold underline">Send OTP</p>
-        </div>
       </div>
-      
-      <div className={cn("flex flex-col gap-1",kumbh_sans_darker.className)}>
-        <Label htmlFor="otp" className=" text-[#3D408A] font-semibold pl-2">
-          OTP
+      <div className="flex flex-col gap-[0.5rem]">
+        <Label htmlFor="firstname" className={cn("text-[#3D408A] pl-2 ",kumbh_sans_darker.className)} >
+          Last Name
         </Label>
+
         <Input
-          type="number"
-          id="otp"
-          placeholder="Enter OTP"
-          className="focus:outline-[#3D408A]"
+          type="text"
+          id="lname"
+          placeholder="Enter your last name"
+          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
         />
       </div>
 
-      <div className={cn("flex flex-col top-32 relative items-stretch ",kumbh_sans_darker.className)}>
+      <div className="flex flex-col gap-[0.5rem]">
+        <Label htmlFor="firstname" className={cn("text-[#3D408A] pl-2 ",kumbh_sans_darker.className)} >
+          Role
+        </Label>
+
+        <Input
+          type="text"
+          id="role"
+          placeholder="Enter your Role at Institution"
+          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+        /> 
+      </div>
+
+      
+
+      <div className={cn("flex flex-col top-[8.25rem] relative items-stretch ",kumbh_sans_darker.className)}>
         
         <Button
           variant={"blueg"}
@@ -62,16 +70,10 @@ export function Admin_Signup() {
         >
           Sign Up
         </Button>
-        
-        <div className="px-10 pt-2 text-violetBlue relative items-center">
-          <p className="text-sm font-semibold">
-            Are you a Student ? 
-            <span className="text-[#3D408A] underline tracking-wide">
-              Login <Link href="/signup">Here</Link>
-            </span>
-          </p>
-        </div>
+
       </div>
     </div>
   );
-}
+};
+
+export default SetupAdmin;

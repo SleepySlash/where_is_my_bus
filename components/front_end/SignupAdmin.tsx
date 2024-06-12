@@ -16,7 +16,7 @@ const kumbh_sans_lighter = Kumbh_Sans({
   subsets: ['latin'],
 });
 
-export function Admin_Signup() {
+export function SignupAdmin() {
   return (
     <div className={cn("grid w-full max-w-sm items-center gap-[1.25rem] relative")}>
       <div className="right-0 flex flex-col justify-center gap-1">
@@ -53,15 +53,15 @@ export function Admin_Signup() {
       </div>
 
       <div className={cn("flex flex-col top-32 relative items-stretch ",kumbh_sans_darker.className)}>
-        
-        <Button
-          variant={"blueg"}
-          size={"blueg"}
-          className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
-          onClick={() => console.log("Clicked")}
-        >
-          Sign Up
-        </Button>
+        <Link href="/admin/setup" className="flex flex-col" >
+          <Button
+            variant={"blueg"}
+            size={"blueg"}
+            className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
+          >
+            Sign Up
+          </Button>
+        </Link>
         
         <div className="px-10 pt-2 text-violetBlue relative items-center">
           <p className="text-sm font-semibold">
