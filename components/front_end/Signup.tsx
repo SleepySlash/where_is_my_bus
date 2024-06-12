@@ -14,7 +14,7 @@ const kumbh_sans_darker = Kumbh_Sans({
 const kumbh_sans_lighter = Kumbh_Sans({
   weight: '400',
   subsets: ['latin'],
-});
+}); 
 
 export function Signup() {
   return (
