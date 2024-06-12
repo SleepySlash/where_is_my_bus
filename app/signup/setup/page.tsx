@@ -6,7 +6,7 @@ import { Signup } from "@/components/front_end/Signup";
 import Image from "next/image";
 const page = () => {
   return (
-    <div className="relative flex flex-col min-h-screen md:hidden">
+    <div className="relative flex flex-col max-w-sm min-h-screen md:hidden">
       <Navbar />
       <div className="flex flex-col items-start mt-[4rem] p-[1.5rem] ">
         <p className=" font-semibold text-[#919191] text-xl">Step 1 of 2</p>
