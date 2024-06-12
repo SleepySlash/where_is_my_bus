@@ -7,7 +7,7 @@ import { Selectcollege } from "./Selectcolleg";
 
 export function Signup() {
   return (
-    <div className="grid relative w-full max-w-sm items-center gap-[1rem]">
+    <div className="grid relative w-full  items-center gap-[1rem]">
       <Label htmlFor="mobilenumber" className=" text-[#3D408A]">
         College Name
       </Label>

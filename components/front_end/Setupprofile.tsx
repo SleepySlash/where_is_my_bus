@@ -6,7 +6,7 @@ import { Selectgender } from "./Selectgender";
 
 const Setupprofile = () => {
   return (
-    <div className="grid relative w-full max-w-sm items-center gap-[1.5rem]">
+    <div className="grid relative w-full items-center gap-[1.5rem]">
       <div className="flex flex-col gap-[0.5rem]">
         <Label htmlFor="firstname" className=" text-[#3D408A]">
           First Name

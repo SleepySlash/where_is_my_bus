@@ -14,14 +14,6 @@ const page = () => {
         <div className="p-2 pt-[2rem] w-full flex items-center justify-center z-20">
           <Setupprofile />
         </div>
-        <div className="absolute bottom-0 left-0 right-0 z-0">
-          <Image
-            src={"/Ellipse.svg"}
-            alt={"Ellipse"}
-            width={767}
-            height={10}
-          />
-        </div>
       </div>
     </div>
   );
