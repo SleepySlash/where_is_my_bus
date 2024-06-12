@@ -24,14 +24,14 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-9 w-full items-center justify-between border whitespace-nowrap rounded-md border-[#3D408A] focus:outline-[#3D408A] bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground ",
+      "flex h-17 rounded-[10px]  w-full items-center justify-between border whitespace-nowrap  border-[#3D408A] focus:outline-[#3D408A] bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground ",
       className
     )}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <CaretSortIcon className="w-4 h-4 opacity-50" />
+      <CaretSortIcon className="w-4 h-7 rounded-[10px] opacity-50" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))

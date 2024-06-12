@@ -15,17 +15,7 @@ const page = () => {
         <div className="p-2 pt-[2rem] w-full flex flex-col items-center justify-center z-20">
           <Setupprofile />
         </div>
-        {/* <div className="p-2 absolute  flex flex-col items-center justify-center bottom-[100px]"> */}
-        <Button
-            variant={"blueg"}
-            size={"blueg"}
-            onClick={() => console.log("Clicked")}
-            className="mt-[7rem] w-full "
-          >
-            Proceed
-          </Button>
-          
-        {/* </div> */}
+
       </div>
     </div>
   );
