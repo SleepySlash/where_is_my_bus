@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Selectgender } from "./Selectgender";
-import {Kumbh_Sans } from 'next/font/google';
+import {Kumbh_Sans, Montserrat} from 'next/font/google';
 import { cn } from "@/lib/utils";
 const kumbh_sans_darker = Kumbh_Sans({
   weight: '700',
@@ -15,6 +15,14 @@ const kumbh_sans_medium = Kumbh_Sans({
 });
 const kumbh_sans_lighter = Kumbh_Sans({
   weight: '400',
+  subsets: ['latin'],
+});
+const montserrat = Montserrat({
+  weight: '500',
+  subsets: ['latin'],
+});
+const montserrat_light = Montserrat({
+  weight: '300',
   subsets: ['latin'],
 });
 
@@ -29,7 +37,7 @@ const Setupprofile = () => {
           type="text"
           id="fname"
           placeholder="Enter your first name"
-          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A]",montserrat.className)}
         />
       </div>
       <div className="flex flex-col gap-[0.5rem]">
@@ -41,7 +49,7 @@ const Setupprofile = () => {
           type="text"
           id="lname"
           placeholder="Enter your last name"
-          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A]",montserrat.className)}
         />
       </div>
 
@@ -54,7 +62,7 @@ const Setupprofile = () => {
             type="date"
             id="dob"
             placeholder="DD/MM/YYYY"
-            className={cn("focus:outline-[#3D408A] font-light ",kumbh_sans_lighter.className)}
+            className={cn("focus:outline-[#3D408A] font-light ",montserrat_light.className)}
           />
         </div>
         <div className="flex flex-col gap-[0.5rem] ">
@@ -67,14 +75,15 @@ const Setupprofile = () => {
 
       <div className={cn("flex flex-col top-[8.2rem] relative items-stretch ",kumbh_sans_darker.className)}>
         
-        <Button
-          variant={"blueg"}
-          size={"blueg"}
-          className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
-          onClick={() => console.log("Clicked")}
-        >
-          Proceed
-        </Button>
+        <Link href="/signup/setup/setupnext" className="flex flex-col" >
+          <Button
+            variant={"blueg"}
+            size={"blueg"}
+            className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
+          >
+            Proceed
+          </Button>
+        </Link>
 
       </div>
     </div>

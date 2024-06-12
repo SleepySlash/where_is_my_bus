@@ -4,7 +4,7 @@ import {cn, colleges} from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Selectcollege } from "./Selectcolleg";
-import {Kumbh_Sans } from 'next/font/google';
+import {Kumbh_Sans,Montserrat } from 'next/font/google';
 
 
 const kumbh_sans_darker = Kumbh_Sans({
@@ -13,6 +13,10 @@ const kumbh_sans_darker = Kumbh_Sans({
 });
 const kumbh_sans_lighter = Kumbh_Sans({
   weight: '400',
+  subsets: ['latin'],
+});
+const montserrat = Montserrat({
+  weight: '500',
   subsets: ['latin'],
 });
 
@@ -33,7 +37,7 @@ export function SignupAdmin() {
           type="number" 
           id="email"
           placeholder="Enter Mobile number"
-          className="focus:outline-[#3D408A] "
+          className={cn("focus:outline-[#3D408A] ",montserrat.className)}
         />
         <div className="flex flex-row items-end justify-end" >
           <p className="text-sm text-violetBlue font-bold underline">Send OTP</p>
@@ -48,7 +52,7 @@ export function SignupAdmin() {
           type="number"
           id="otp"
           placeholder="Enter OTP"
-          className="focus:outline-[#3D408A]"
+          className={cn("focus:outline-[#3D408A] ",montserrat.className)}
         />
       </div>
 

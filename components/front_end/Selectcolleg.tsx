@@ -9,6 +9,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { cn } from "@/lib/utils";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  weight: "500",
+  subsets: ["latin"],
+});
+const montserrat_lighter = Montserrat({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 
 export function Selectcollege() {
   return (
@@ -16,7 +28,7 @@ export function Selectcollege() {
       <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
         <SelectValue
           placeholder="Select College"
-          className="focus:outline-[#3D408A] outline-[#3D408A]  "
+          className={cn("focus:outline-[#3D408A] outline-[#3D408A] ",montserrat_lighter.className)}
         />
       </SelectTrigger>
       <SelectContent>
@@ -25,7 +37,7 @@ export function Selectcollege() {
             <SelectItem
               key={clg.id}
               value={clg.name}
-              className="focus:outline-none"
+              className={cn("focus:outline-none", montserrat.className)}
             >
               {clg.name}
             </SelectItem>

@@ -8,24 +8,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {Kumbh_Sans } from 'next/font/google';
+import {Kumbh_Sans,Montserrat } from 'next/font/google';
 import { cn } from "@/lib/utils";
 
-const kumbh_sans_medium = Kumbh_Sans({
-  weight: '600',
-  subsets: ['latin'],
+const montserrat = Montserrat({
+  weight: "500",
+  subsets: ["latin"],
 });
-const kumbh_sans_lighter = Kumbh_Sans({
+const montserrat_lighter = Kumbh_Sans({
   weight: '400',
   subsets: ['latin'],
 });
 export function Selectgender() {
   return (
     <Select>
-      <SelectTrigger className={cn("outline-[#3D408A] focus:outline-[#3D408A] w-[135px]",kumbh_sans_lighter.className)}>
+      <SelectTrigger className={cn("outline-[#3D408A] focus:outline-[#3D408A] w-[135px]")}>
         <SelectValue
           placeholder="Select Gender"
-          className={cn("focus:outline-[#3D408A] outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A] outline-[#3D408A]",montserrat_lighter.className)}
         />
       </SelectTrigger>
       <SelectContent>
@@ -34,7 +34,7 @@ export function Selectgender() {
             <SelectItem
               key={gen.id}
               value={gen.name}
-              className="focus:outline-none"
+              className={cn("focus:outline-none", montserrat.className)}
             >
               {gen.name}
             </SelectItem>

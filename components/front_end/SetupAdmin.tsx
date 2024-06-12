@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Selectgender } from "./Selectgender";
-import {Kumbh_Sans } from 'next/font/google';
+import {Kumbh_Sans,Montserrat } from 'next/font/google';
 import { cn } from "@/lib/utils";
 const kumbh_sans_darker = Kumbh_Sans({
   weight: '700',
@@ -17,6 +17,11 @@ const kumbh_sans_lighter = Kumbh_Sans({
   weight: '400',
   subsets: ['latin'],
 });
+const montserrat = Montserrat({
+  weight: '500',
+  subsets: ['latin'],
+});
+
 
 const SetupAdmin = () => {
   return (
@@ -29,7 +34,7 @@ const SetupAdmin = () => {
           type="text"
           id="fname"
           placeholder="Enter your first name"
-          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A]",montserrat.className)}
         />
       </div>
       <div className="flex flex-col gap-[0.5rem]">
@@ -41,7 +46,7 @@ const SetupAdmin = () => {
           type="text"
           id="lname"
           placeholder="Enter your last name"
-          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A]",montserrat.className)}
         />
       </div>
 
@@ -54,7 +59,7 @@ const SetupAdmin = () => {
           type="text"
           id="role"
           placeholder="Enter your Role at Institution"
-          className={cn("focus:outline-[#3D408A]",kumbh_sans_medium.className)}
+          className={cn("focus:outline-[#3D408A]",montserrat.className)}
         /> 
       </div>
 
@@ -66,7 +71,6 @@ const SetupAdmin = () => {
           variant={"blueg"}
           size={"blueg"}
           className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
-          onClick={() => console.log("Clicked")}
         >
           Proceed
         </Button>
