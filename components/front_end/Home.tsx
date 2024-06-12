@@ -35,7 +35,7 @@ const kumbh_sans_lighter = Kumbh_Sans({
 
 const Home = () => {
   return (
-    <div className="relative max-w-sm  overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       <div className='flex flex-col items-center justify-start w-full px-2 pb-10 md:max-h-80 bg-yellowLight'>
         
         <span className={cn('font-semibold text-textGrey text-[1.375rem] pr-2 mt-[1.25rem]', jua.className)}>Welcome to</span>

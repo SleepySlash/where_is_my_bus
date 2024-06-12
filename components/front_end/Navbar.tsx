@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar = ({Route,BusDetails}:NavbarProps) => {
   return (
     <>
-        <div className='fixed top-[-2px] left-0 w-full flex justify-between pb-4 items-strech shadow-xl bg-white z-50 max-w-sm '>
+        <div className='fixed top-[-2px] left-0 w-full flex justify-between pb-4 items-strech shadow-xl bg-white z-50'>
             <Link
                 href="/"
                 className=''
