@@ -36,7 +36,7 @@ export function SignupAdmin() {
           className="focus:outline-[#3D408A] "
         />
         <div className="flex flex-row items-end justify-end" >
-          <p className="text-sm font-bold underline">Send OTP</p>
+          <p className="text-sm text-violetBlue font-bold underline">Send OTP</p>
         </div>
       </div>
       

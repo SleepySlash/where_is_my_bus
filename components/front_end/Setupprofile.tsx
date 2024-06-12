@@ -73,7 +73,7 @@ const Setupprofile = () => {
           className={cn("rounded-xl justify-around h-[3rem] shadow-2xl text-[1rem] ")}
           onClick={() => console.log("Clicked")}
         >
-          Sign Up
+          Proceed
         </Button>
 
       </div>
