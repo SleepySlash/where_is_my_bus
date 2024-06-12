@@ -51,14 +51,14 @@ const Setupprofile = () => {
         </div>
       </div>
 
-      <Button
+      {/* <Button
         variant={"blueg"}
         size={"blueg"}
         onClick={() => console.log("Clicked")}
-        className="mt-[4rem]"
+        className="mt-[4rem] absolute bottom-[-200px] w-full"
       >
         Proceed
-      </Button>
+      </Button> */}
     </div>
   );
 };
