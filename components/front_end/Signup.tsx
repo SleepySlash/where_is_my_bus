@@ -11,6 +11,10 @@ const kumbh_sans_darker = Kumbh_Sans({
   weight: '700',
   subsets: ['latin'],
 });
+const kumbh_sans_medium = Kumbh_Sans({
+  weight: '600',
+  subsets: ['latin'],
+});
 const kumbh_sans_lighter = Kumbh_Sans({
   weight: '400',
   subsets: ['latin'],
@@ -52,7 +56,7 @@ export function Signup() {
         />
       </div>
 
-      <div className={cn("flex flex-col top-32 relative ",kumbh_sans_darker.className)}>
+      <div className={cn("flex flex-col top-32 relative ",kumbh_sans_medium.className)}>
         
         <Button
           variant={"blueg"}
