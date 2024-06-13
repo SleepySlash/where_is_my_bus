@@ -1,31 +1,31 @@
 // app/components/OfflineDetector.tsx
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const OfflineDetector = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
-        const handleOnlineStatus = () => {
-            if (!navigator.onLine) {
-                router.push('/offline');
-            }
-        };
+  useEffect(() => {
+    const handleOnlineStatus = () => {
+      if (!navigator.onLine) {
+        router.push("/offline");
+      }
+    };
 
-        window.addEventListener('online', handleOnlineStatus);
-        window.addEventListener('offline', handleOnlineStatus);
+    window.addEventListener("online", handleOnlineStatus);
+    window.addEventListener("offline", handleOnlineStatus);
 
-        // Initial check
-        handleOnlineStatus();
+    // Initial check
+    handleOnlineStatus();
 
-        return () => {
-            window.removeEventListener('online', handleOnlineStatus);
-            window.removeEventListener('offline', handleOnlineStatus);
-        };
-    }, [router]);
+    return () => {
+      window.removeEventListener("online", handleOnlineStatus);
+      window.removeEventListener("offline", handleOnlineStatus);
+    };
+  }, [router]);
 
-    return null;
+  return null;
 };
 
 export default OfflineDetector;
