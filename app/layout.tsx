@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("md:hidden",inter.className,kumbh_sans.variable,jua.variable,manrope.variable )}>
-        <OfflineDetector/>
+        {/* <OfflineDetector/> */}
         {children}
       </body>
     </html>
