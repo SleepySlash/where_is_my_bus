@@ -85,7 +85,7 @@ export default function Home() {
             </Button>
           </Link>
 
-          <div className="px-4 pt-2 text-violetBlue">
+          <div className="px-[1.5rem] pt-2 text-violetBlue">
             <p className="text-sm font-semibold">
               Are you an Administrator?
               <span className="text-[#3D408A] underline tracking-wide">
