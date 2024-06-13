@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/front_end/Navbar";
 import { cn } from "@/lib/utils";
 import { Variable } from "lucide-react";
-
+import OfflineDetector from "@/components/front_end/OfflineDetector";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("md:hidden",inter.className,kumbh_sans.variable,jua.variable,manrope.variable )}>
+        <OfflineDetector/>
         {children}
       </body>
     </html>
