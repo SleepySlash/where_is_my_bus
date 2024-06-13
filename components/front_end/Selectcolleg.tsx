@@ -25,7 +25,7 @@ const montserrat_lighter = Montserrat({
 export function Selectcollege() {
   return (
     <Select >
-      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
+      <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] rounded-lg">
         <SelectValue
           placeholder="Select College"
           className={cn("focus:outline-[#3D408A] outline-[#3D408A] ",montserrat_lighter.className)}

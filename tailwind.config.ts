@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily:{
+        jua:[ "var(--font-Jua)"],
+        manrope:[ "var(--font-Manrope)"],
+        kumbh_sans:[ "var(--font-KumbSans)"],
+      },
       fontSize: {
         'customfont_Sm': '1.35rem', 
        },

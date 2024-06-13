@@ -21,7 +21,7 @@ const manrope = Manrope({
 const Hero = () => {
   return (
     <div className="w-full overflow-hidden">
-      <div className='flex flex-row justify-center items-center w-full pt-12'>
+      <div className='flex flex-row justify-center items-center w-full'>
         <Image src={hero} alt='hero' className='w-full h-[68vh] object-cover' />
       </div>
 

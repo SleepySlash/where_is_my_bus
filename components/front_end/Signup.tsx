@@ -27,8 +27,8 @@ const montserrat = Montserrat({
 
 export function Signup() {
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-[1.25rem] relative")}>
-      <div className="right-0 flex flex-col justify-center gap-1">
+    <div className={cn("flex flex-col w-full max-w-sm items-center justify-between gap-[1.25rem] relative")}>
+      <div className="right-0 flex flex-col justify-center flex-1 gap-1">
         <Label htmlFor="collegeName" className={cn(" text-[#3D408A] font-semibold pl-2",kumbh_sans_darker.className)}>
           College Name
         </Label>
@@ -61,7 +61,7 @@ export function Signup() {
         />
       </div>
 
-      <div className={cn("flex flex-col top-32 relative ",kumbh_sans_medium.className)}>
+      {/* <div className={cn("flex flex-col top-32 relative ",kumbh_sans_medium.className)}>
         <Link href="/signup/setup" className="flex flex-col" >
           <Button
             variant={"blueg"}
@@ -80,7 +80,7 @@ export function Signup() {
             </span>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
