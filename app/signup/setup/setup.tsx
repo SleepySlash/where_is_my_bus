@@ -1,7 +1,6 @@
 "use client";
 
 import Navbar from "@/components/front_end/Navbar";
-import { Selectgender } from "@/components/front_end/Selectgender";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -31,12 +30,10 @@ const setup = () => {
               >
                 First Name
               </Label>
-              <Input
-                type="text"
+              <Input type="text"
                 id="firstName"
-                placeholder="Enter your First Name"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+                placeholder="Enter First Name"
+                className={cn("focus:outline-[#3D408A]")}/>
             </div>
 
             <div className="w-full">
@@ -46,38 +43,28 @@ const setup = () => {
               >
                 Last Name
               </Label>
-              <Input
-                type="text"
-                id="lastName"
-                placeholder="Enter your Last Name"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+              <Input type="text"
+                id="firstName"
+                placeholder="Enter L"
+                className={cn("focus:outline-[#3D408A]")}/>
             </div>
 
-            <div className="flex justify-between items-center gap-4 ">
-              <div>
-                <Label
-                  htmlFor="Date of Birth"
-                  className={cn(" text-violetBlue font-semibold pl-3")}
-                >
-                  Date of Birth
-                </Label>
-                <Input
-                  type="dob"
-                  id="Date of Birth"
-                  placeholder="DD/MM/YYYY"
-                  className={cn("focus:outline-[#3D408A] max-w-full")}
-                />
-              </div>
-              <div>
-                <Label
-                  htmlFor="Gender"
-                  className={cn(" text-violetBlue font-semibold pl-3")}
-                >
-                  Gender
-                </Label>
-                <Selectgender />
-              </div>
+            <div className="w-full">
+              <Label
+                htmlFor="Date of Birth"
+                className={cn(" text-violetBlue font-semibold pl-3")}
+              >
+                Date of Birth
+              </Label>
+              <Input />
+
+              <Label
+                htmlFor="Gender"
+                className={cn(" text-violetBlue font-semibold pl-3")}
+              >
+                Gender
+              </Label>
+              <Input />
             </div>
 
             <div className="w-full">
@@ -87,12 +74,7 @@ const setup = () => {
               >
                 Bus Route
               </Label>
-              <Input
-                type="select"
-                id="busRoute"
-                placeholder="Select Bus Route"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+              <Input />
             </div>
 
             <div className="w-full">
@@ -102,12 +84,7 @@ const setup = () => {
               >
                 Area/LandMark Name
               </Label>
-              <Input
-                type="text"
-                id="areaLandMarkName"
-                placeholder="Enter Area/LandMark Name"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+              <Input />
             </div>
 
             <div className="w-full">
@@ -117,24 +94,12 @@ const setup = () => {
               >
                 Location Coordinates
               </Label>
-              <Input
-                type="text"
-                id="locationCoordinates"
-                placeholder="Enter Location Coordinates"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+              <Input />
             </div>
           </div>
         </div>
-        <div className="sticky flex flex-col bottom-0 justify-center bg-white  items-center w-full min-h-24 z-20">
-        <div className="h-2 w-full bg-gradient-to-b from-transparent to-neutral-50"></div>
-          <Button
-          variant={"blueg"}
-          size={"blueg"}
-          className={cn(
-            "rounded-xl h-[3rem] shadow-2xl text-[1rem]  "
-          )}
-          >
+        <div>
+          <Button>
             <p>Save || Procced</p>
           </Button>
         </div>

@@ -9,15 +9,19 @@ import Link from "next/link";
 import { Selectcollege } from "@/components/front_end/Selectcolleg";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [user,setUser] = useState(false);
+
   return (
     <div className="relative flex flex-col md:hidden font-kumbh_sans">
       <Navbar />
       <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold  ">
         <div className="w-full flex-1 p-[1.5rem]">
           <p className={cn(" font-bold text-[#919191] text-xl")}>
-            Let{"'"}s Get Started!
+            { user?"Adminstrator" : " Let's Get Started!" }
           </p>
 
           <p className={cn("text-[#3D408A] text-5xl font-bold")}>Sign Up</p>
@@ -30,7 +34,7 @@ export default function Home() {
             <div className="gap-1 w-full">
               <Label
                 htmlFor="collegeName"
-                className={cn(" text-[#3D408A] font-semibold pl-3")}
+                className={cn(" text-violetBlue font-semibold pl-3")}
               >
                 College Name
               </Label>
@@ -44,7 +48,7 @@ export default function Home() {
                 Mobile Number
               </Label>
               <Input
-                type="number"
+                type="text"
                 id="email"
                 placeholder="Enter Mobile number"
                 className={cn("focus:outline-[#3D408A]")}
@@ -56,7 +60,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className=" gap-1 w-full -mt-5 ">
+            <div className=" w-full -mt-5 ">
               <Label
                 htmlFor="otp"
                 className=" text-[#3D408A] font-semibold pl-3"
@@ -72,7 +76,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full mt-6 items-center flex-1 justify-center relative">
+        <div className="w-full mt-8 items-center flex-1 justify-center relative">
           <Link href="/signup/setup" className="w-full flex flex-col  px-[1.5rem] ">
             <Button
               variant={"blueg"}
@@ -85,11 +89,11 @@ export default function Home() {
             </Button>
           </Link>
 
-          <div className="px-[1.5rem] pt-2 text-violetBlue">
+          <div className="flex flex-col items-center pt-2 text-violetBlue">
             <p className="text-sm font-semibold">
-              Are you an Administrator?
+              Are you {user?"an Adminstrator":" a Student"}?
               <span className="text-[#3D408A] underline tracking-wide">
-                Login <Link href="/admin">Here</Link>
+                Login <Link href="/signup" onClick={()=>{setUser(!user)}} >Here</Link>
               </span>
             </p>
           </div>
