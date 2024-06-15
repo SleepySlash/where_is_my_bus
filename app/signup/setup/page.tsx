@@ -6,9 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Label } from "@radix-ui/react-label";
-import React from "react";
+import Link from "next/link";
+import { useState } from "react";
 
-const setup = () => {
+const Setup = () => {
+  const [user,setUser] = useState(false);
+
   return (
     <div className="relative flex flex-col md:hidden font-kumbh_sans">
       <Navbar />
@@ -19,7 +22,7 @@ const setup = () => {
             Account Details
           </p>
 
-          <p className={cn("text-[#3D408A] text-5xl font-bold")}>My Profile</p>
+          <p className={cn("text-[#3D408A] text-5xl font-bold")}>{user ?"My":"Setup"} Profile</p>
 
           <br />
 
@@ -50,6 +53,21 @@ const setup = () => {
                 type="text"
                 id="lastName"
                 placeholder="Enter your Last Name"
+                className={cn("focus:outline-[#3D408A]")}
+              />
+            </div>
+
+            <div className="w-full">
+              <Label
+                htmlFor="RollNo"
+                className={cn(" text-violetBlue font-semibold pl-3")}
+              >
+                Roll Number
+              </Label>
+              <Input
+                type="text"
+                id="rollNo"
+                placeholder="Enter your Roll Number"
                 className={cn("focus:outline-[#3D408A]")}
               />
             </div>
@@ -126,21 +144,20 @@ const setup = () => {
             </div>
           </div>
         </div>
-        <div className="sticky flex flex-col bottom-0 justify-center bg-white  items-center w-full min-h-24 z-20">
-        <div className="h-2 w-full bg-gradient-to-b from-transparent to-neutral-50"></div>
-          <Button
-          variant={"blueg"}
-          size={"blueg"}
-          className={cn(
-            "rounded-xl h-[3rem] shadow-2xl text-[1rem]  "
-          )}
-          >
-            <p>Save || Procced</p>
-          </Button>
+        <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
+          <Link href="/" className="flex flex-col w-full px-6">
+            <Button
+              variant={"blueg"}
+              size={"blueg"}
+              className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]")}
+            >
+              <p>{user ?"Save":"Proceed"}</p>
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default setup;
+export default Setup;
