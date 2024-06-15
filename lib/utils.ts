@@ -4,7 +4,107 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
+export const busroute_nos=[
+  {
+    name:"Route No",
+    id:1
+  },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },
+  // {
+  //   name:"Route No 1",
+  //   id:1
+  // },{
+  //   name:"Route No 1",
+  //   id:1
+  // },
+]
 export const colleges = [
   {
     name: "MLRIT",
