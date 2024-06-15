@@ -1,10 +1,9 @@
 "use client";
-
 import Navbar from "@/components/front_end/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import React from "react";
 
 const setup = () => {
