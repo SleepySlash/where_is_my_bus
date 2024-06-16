@@ -64,7 +64,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
               className="w-[7rem] aspect-square "
             />
           </div>
-          <Item name="Profile" icon="/user_blue.svg" linkto="/" />
+          <Item name="Profile" icon="/user_blue.svg" linkto="/signup/setup" />
           <Item name="Contact Us" icon="/contact.svg" linkto="/contact-us" />
           <Item name="Install App" icon="/heart.svg" linkto="/" />
         </div>
