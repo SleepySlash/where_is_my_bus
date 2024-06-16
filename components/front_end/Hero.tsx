@@ -7,15 +7,10 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-<<<<<<< HEAD
-    <div className="w-full">
-      <Image src={hero} alt="hero" className="w-full object-cover" />
-=======
     <div className="w-full overflow-hidden">
       <div className='flex flex-row justify-center items-center w-full'>
         <Image src={hero} alt='hero' className='w-full h-[68vh] object-cover' />
       </div>
->>>>>>> a0c50addd7b9f6548c11b7191e47d58d87168219
 
       <div className="flex flex-col items-center p-9 bg-grey w-full ">
         <div
