@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import Navbar from "@/components/front_end/Navbar";
-import { Signup } from "@/components/front_end/Signup";
-import { Kumbh_Sans } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -10,10 +8,23 @@ import { Selectcollege } from "@/components/front_end/Selectcolleg";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
 
+  const router = useRouter();
   const [user,setUser] = useState(false);
+
+  const handleClick = () => {
+    if(user)
+      {
+        router.push('/admin/setup');
+      }
+      else
+      {
+        router.push('/signup/setup');
+      }
+  }
 
   return (
     <div className="relative flex flex-col md:hidden font-kumbh_sans">
@@ -77,17 +88,18 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full mt-8 items-center flex-1 justify-center relative">
-          <Link href="/signup/setup" className="w-full flex flex-col  px-[1.5rem] ">
+          <div className="w-full flex flex-col  px-[1.5rem] ">
             <Button
               variant={"blueg"}
               size={"blueg"}
               className={cn(
                 "rounded-xl h-[3rem] shadow-2xl text-[1rem]  "
               )}
+              onClick={handleClick}
             >
               Sign Up
             </Button>
-          </Link>
+          </div>
 
           <div className="flex flex-col items-center pt-2 text-violetBlue">
             <p className="text-sm font-semibold">
