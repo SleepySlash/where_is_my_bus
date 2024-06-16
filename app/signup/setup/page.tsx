@@ -144,7 +144,7 @@ const Setup = () => {
             </div>
           </div>
         </div>
-        <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
+        <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 ">
           <Link href="/" className="flex flex-col w-full px-6">
             <Button
               variant={"blueg"}
