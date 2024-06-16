@@ -19,7 +19,11 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="sticky top-0 z-[1000] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
+=======
+      <div className="sticky top-0 w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md z-10">
+>>>>>>> a0c50addd7b9f6548c11b7191e47d58d87168219
         <Link href="/" className="">
           <Image src={logo} alt="logo" className="cursor-pointer h-8 w-8" />
         </Link>
@@ -64,8 +68,8 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
               className="w-[7rem] aspect-square "
             />
           </div>
-          <Item name="Profile" icon="/user_blue.svg" linkto="/" />
-          <Item name="Contact Us" icon="/contact.svg" linkto="/" />
+          <Item name="Profile" icon="/user_blue.svg" linkto="/signup/setup" />
+          <Item name="Contact Us" icon="/contact.svg" linkto="/contact-us" />
           <Item name="Install App" icon="/heart.svg" linkto="/" />
         </div>
 

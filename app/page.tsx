@@ -13,4 +13,8 @@ const page = () => {
   );
 };
 
+<<<<<<< HEAD
 export default page;
+=======
+export default page
+>>>>>>> a0c50addd7b9f6548c11b7191e47d58d87168219
