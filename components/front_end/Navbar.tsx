@@ -65,7 +65,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
             />
           </div>
           <Item name="Profile" icon="/user_blue.svg" linkto="/" />
-          <Item name="Contact Us" icon="/contact.svg" linkto="/" />
+          <Item name="Contact Us" icon="/contact.svg" linkto="/contact-us" />
           <Item name="Install App" icon="/heart.svg" linkto="/" />
         </div>
 
