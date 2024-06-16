@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div >
       <Navbar />
 
-      <div className="px-7 py-4 font-kumbh_sans min-h-[93vh] flex flex-col justify-between">
+      <div className="px-7 py-4 font-kumbh_sans min-h-[84vh] flex flex-col justify-between">
         <div className="mb-3 flex-1">
           <h2 className="text-2xl text-[#919191] font-semibold">
             Any Queries?
@@ -58,14 +58,14 @@ const ContactUs = () => {
       </div>
 
       {/* Footer */}
-      <div className="bg-yellowLight relative min-h-[20vh] p-3 flex flex-col justify-end">
+      <div className="bg-yellowLight relative min-h-[9vh] p-3 flex flex-col justify-end">
         <div className="flex gap-2 items-center">
           <Image
-            src={"/arrow_down.svg"}
+            src={"/mail.svg"}
             alt="logo"
-            height={1}
+            height={2}
             width={2}
-            className="bg-white rounded-full h-6 w-6 p-2"
+            className="bg-white rounded-full h-8 w-8 px-2"
           />
           <p className="font-kumbh_sans font-semibold text-sm">
             whereismybus22@gmail.com
@@ -73,23 +73,23 @@ const ContactUs = () => {
         </div>
         <div className="flex gap-2 items-center mt-2">
           <Image
-            src={"/arrow_down.svg"}
+            src={"/insta.svg"}
             alt="logo"
-            height={1}
+            height={2}
             width={2}
-            className="bg-white rounded-full h-6 w-6 p-2"
+            className="bg-white rounded-full h-8 w-8 px-2"
           />
           <p className="font-kumbh_sans font-semibold text-sm">
-            whereismybus22@gmail.com
+            whereismybus.tech
           </p>
         </div>
         <div className="flex gap-2 items-center mt-2">
           <Image
-            src={"/arrow_down.svg"}
+            src={"/twitter.svg"}
             alt="logo"
-            height={1}
+            height={2}
             width={2}
-            className="bg-white rounded-full h-6 w-6 p-2"
+            className="bg-white rounded-full h-7 w-7 px-2"
           />
           <p className="font-kumbh_sans font-semibold text-sm">
             whereismybus22@gmail.com
