@@ -19,7 +19,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
   return (
     <>
-      <div className="sticky top-0 w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
+      <div className="sticky top-0 z-[1000] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
         <Link href="/" className="">
           <Image src={logo} alt="logo" className="cursor-pointer h-8 w-8" />
         </Link>
@@ -29,7 +29,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
         <Button
           onClick={() => setOpen(true)}
-          className="bg-transparent shadow-none hover:bg-transparent"
+          className="bg-transparent shadow-none hover:bg-transparent p-0"
         >
           <Image src={settings} alt="settings" className="h-8 w-8" />
         </Button>
@@ -37,7 +37,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
       {/* When there Route Details sent they have to be rendered as bar below the navbar  */}
       <div
-        className={`fixed top-0 right-0 min-h-[101vh] p-5 pr-10 z-10 bg-white min-w-[60vw] flex justify-between flex-col transition-all duration-200 ${
+        className={`fixed top-0 right-0 min-h-[101vh] p-5 pr-10 bg-white min-w-[60vw] flex justify-between flex-col transition-all duration-200 z-[1000] ${
           !open ? "translate-x-[100%]" : ""
         }`}
       >
@@ -69,7 +69,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
           <Item name="Install App" icon="/heart.svg" linkto="/" />
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 mb-10">
           <p className="">Change Language</p>
           <div className="border p-3 rounded-lg border-violetBlue">
             <p>English(IND)</p>
