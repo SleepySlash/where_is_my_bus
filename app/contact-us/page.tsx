@@ -57,52 +57,7 @@ const ContactUs = () => {
         </button>
       </div>
 
-      {/* Footer */}
-      <div className="bg-yellowLight relative min-h-[9vh] p-3 flex flex-col justify-end">
-        <div className="flex gap-2 items-center">
-          <Image
-            src={"/mail.svg"}
-            alt="logo"
-            height={2}
-            width={2}
-            className="bg-white rounded-full h-8 w-8 px-2"
-          />
-          <p className="font-kumbh_sans font-semibold text-sm">
-            whereismybus22@gmail.com
-          </p>
-        </div>
-        <div className="flex gap-2 items-center mt-2">
-          <Image
-            src={"/insta.svg"}
-            alt="logo"
-            height={2}
-            width={2}
-            className="bg-white rounded-full h-8 w-8 px-2"
-          />
-          <p className="font-kumbh_sans font-semibold text-sm">
-            whereismybus.tech
-          </p>
-        </div>
-        <div className="flex gap-2 items-center mt-2">
-          <Image
-            src={"/twitter.svg"}
-            alt="logo"
-            height={2}
-            width={2}
-            className="bg-white rounded-full h-7 w-7 px-2"
-          />
-          <p className="font-kumbh_sans font-semibold text-sm">
-            whereismybus22@gmail.com
-          </p>
-        </div>
-        <Image
-          src={"/logo.svg"}
-          alt={"Logo"}
-          height={100}
-          width={100}
-          className="h-[15vh] aspect-square absolute bottom-0 right-0"
-        />
-      </div>
+      
     </div>
   );
 };
