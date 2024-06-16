@@ -4,14 +4,31 @@ import Navbar from "@/components/front_end/Navbar";
 import { Selectgender } from "@/components/front_end/Selectgender";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { busroute_nos, cn, gender_ } from "@/lib/utils";
 import { Label } from "@radix-ui/react-label";
+import { Kumbh_Sans, Montserrat } from "next/font/google";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Link from "next/link";
 import { useState } from "react";
-
+const montserrat = Montserrat({
+  weight: "500",
+  subsets: ["latin"],
+});
+const montserrat_lighter = Kumbh_Sans({
+  weight: "400",
+  subsets: ["latin"],
+});
+const array = Array.from({ length: 24 });
 const Setup = () => {
-  const [user,setUser] = useState(false);
-
+  const [user, setUser] = useState(false);
+  // const [busno,setBusno]=useState(1);
   return (
     <div className="relative flex flex-col md:hidden font-kumbh_sans">
       <Navbar />
@@ -22,7 +39,9 @@ const Setup = () => {
             Account Details
           </p>
 
-          <p className={cn("text-[#3D408A] text-5xl font-bold")}>{user ?"My":"Setup"} Profile</p>
+          <p className={cn("text-[#3D408A] text-5xl font-bold")}>
+            {user ? "My" : "Setup"} Profile
+          </p>
 
           <br />
 
@@ -98,19 +117,44 @@ const Setup = () => {
               </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full flex flex-col">
               <Label
                 htmlFor="Bus Route"
                 className={cn(" text-violetBlue font-semibold pl-3")}
               >
                 Bus Route
               </Label>
-              <Input
-                type="select"
-                id="busRoute"
-                placeholder="Select Bus Route"
-                className={cn("focus:outline-[#3D408A]")}
-              />
+              <Select>
+                <SelectTrigger
+                  className={cn(
+                    "outline-[#3D408A] focus:outline-[#3D408A] w-full"
+                  )}
+                >
+                  <SelectValue
+                    placeholder="Select Route"
+                    className={cn(
+                      "focus:outline-[#3D408A] outline-[#3D408A]",
+                      montserrat_lighter.className
+                    )}
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {array.map((_, ind) => (
+                      <SelectItem
+                        key={ind}
+                        value={`${ind + 1}`}
+                        className={cn(
+                          "focus:outline-none",
+                          montserrat.className
+                        )}
+                      >
+                        Route No {ind + 1}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="w-full">
@@ -144,14 +188,14 @@ const Setup = () => {
             </div>
           </div>
         </div>
-        <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 ">
+        <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
           <Link href="/" className="flex flex-col w-full px-6">
             <Button
               variant={"blueg"}
               size={"blueg"}
               className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]")}
             >
-              <p>{user ?"Save":"Proceed"}</p>
+              <p>{user ? "Save" : "Proceed"}</p>
             </Button>
           </Link>
         </div>
