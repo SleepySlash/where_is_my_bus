@@ -79,7 +79,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
           <p className="text-violetBlue">Follow Us</p>
           <div className="flex gap-3">
             <Social source="/" alt="instagram" icon="/insta.svg" />
-            <Social source="/" alt="twitt" icon="/twit.svg" />
+            <Social source="/" alt="twitt" icon="/twitt.svg" />
             <Social source="/" alt="browser" icon="/browser.svg" />
           </div>
         </div>
