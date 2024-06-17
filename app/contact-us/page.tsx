@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const ContactUs = () => {
   return (
-    <div >
+    <div>
       <Navbar />
 
-      <div className="px-7 py-4 font-kumbh_sans min-h-[84vh] flex flex-col justify-between">
+      <div className="px-7 pt-4 pb-2 font-kumbh_sans min-h-[90vh] flex flex-col justify-between">
         <div className="mb-3 flex-1">
           <h2 className="text-2xl text-[#919191] font-semibold">
             Any Queries?
@@ -52,12 +52,10 @@ const ContactUs = () => {
         </div>
 
         {/* Submit */}
-        <button className="w-full bg-violetBlue rounded-xl text-white p-3 mb-3">
+        <button className="w-full bg-violetBlue rounded-xl text-white p-3">
           Submit
         </button>
       </div>
-
-      
     </div>
   );
 };
