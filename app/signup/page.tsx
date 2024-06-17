@@ -27,7 +27,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative flex flex-col md:hidden font-kumbh_sans">
+    <div className="relative flex flex-col font-kumbh_sans">
       <Navbar />
       <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold  ">
         <div className="w-full flex-1 p-[1.5rem]">

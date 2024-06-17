@@ -39,7 +39,9 @@ export default function RootLayout({
       <body
         className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
       >
-        {children}
+        <div className="flex justify-center">
+          <div className=" max-w-[800px] w-full">{children}</div>
+        </div>
       </body>
     </html>
   );
