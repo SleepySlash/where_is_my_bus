@@ -7,7 +7,13 @@ export const contactSchema = z.object({
 });
 
 export const signUpSchema = z.object({
-  collegeName: z.string().max(50),
+  collegeName: z.string().min(3).max(50),
   mobileNumber: z.string().min(10).max(10),
-  otp: z.string().max(6)
-})
+  otp: z.string().min(4).max(6),
+});
+
+export const adminAccountSchema = z.object({
+  firstName: z.string().min(2).max(50),
+  lastName: z.string().min(2).max(50),
+  role: z.string().min(5).max(25),
+});
