@@ -50,6 +50,8 @@ export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState(false);
 
+  const [select, setSelect] = useState(false);
+
   const handleClick = () => {
     if (user) {
       router.push("/admin/setup");
@@ -94,12 +96,15 @@ export default function Home() {
                         <FormControl>
                            
                           <div className="w-full">
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
+                            <Select onValueChange={(value)=>{
+                              field.onChange(value)
+                              setSelect(!select)
+                            }}  defaultValue={field.value} >
+                              <SelectTrigger className={cn("outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg font-bold", select ? "text-[#A7A7A7]":"text-black")}>
                                 <SelectValue
                                   placeholder="Select College"
                                   className={cn(
-                                    "focus:outline-[#3D408A] outline-[#3D408A] "
+                                    "focus:outline-[#3D408A] outline-[#3D408A]"
                                   )} {...field}
                                 />
                               </SelectTrigger>
@@ -109,7 +114,7 @@ export default function Home() {
                                     <SelectItem
                                       key={clg.id}
                                       value={clg.name}
-                                      className={cn("focus:outline-none")}
+                                      className={cn("focus:outline-none text-black ")}
                                       
                                     >
                                       {clg.name}
