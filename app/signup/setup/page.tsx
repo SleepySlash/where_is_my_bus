@@ -46,11 +46,11 @@ const Setup = () => {
       lastname: "",
       rollno: "",
       //@ts-ignore
-      // dob: Date(),
+      dob: "",
       gender: "",
       routeno: "",
       area: "",
-      coordinate: "",
+      // coordinate: "",
     },
   });
   function onSubmit(values: z.infer<typeof profileSchema>) {
@@ -81,14 +81,14 @@ const Setup = () => {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className=" flex-grow w-full flex flex-col items-center justify-center "
+                className=" flex-grow w-full flex flex-col items-center justify-center gap-1 "
               >
                 <FormField
                   control={form.control}
                   name="firstname"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="text-violetBlue font-semibold text-base translate-y-7 pl-3">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
                         First Name{" "}
                         <span className="text-red-600 align-super">*</span>
                       </FormLabel>
@@ -104,7 +104,7 @@ const Setup = () => {
                   name="lastname"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="text-violetBlue font-semibold text-base translate-y-7 pl-3">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
                         Last Name{" "}
                         <span className="text-red-600 align-super">*</span>
                       </FormLabel>
@@ -120,29 +120,11 @@ const Setup = () => {
                   name="rollno"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="text-violetBlue font-semibold text-base translate-y-7 pl-3">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
                         Roll Number{" "}
                       </FormLabel>
                       <FormControl>
                         <Input placeholder="roll number" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="area"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-violetBlue font-semibold text-base translate-y-7 pl-3">
-                        Area / Landmark Name{" "}
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="enter area / landmark name"
-                          {...field}
-                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -154,7 +136,7 @@ const Setup = () => {
                   name="dob"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="text-violetBlue font-semibold text-base translate-y-7 pl-3">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
                         Dob{" "}
                       </FormLabel>
                       <FormControl>
@@ -166,20 +148,21 @@ const Setup = () => {
                 /> */}
 
                 <div className="flex justify-between gap-4 w-full ">
-                  <div>
-                    <Label
-                      htmlFor="Date of Birth"
-                      className={cn(" text-violetBlue font-semibold pl-3")}
-                    >
-                      Date of Birth
-                    </Label>
-                    <Input
-                      type="dob"
-                      id="Date of Birth"
-                      placeholder="DD/MM/YYYY"
-                      className={cn("focus:outline-[#3D408A] max-w-full")}
-                    />
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="dob"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-violetBlue font-semibold  pl-3">
+                          Dob
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder="dd/mm/yyyy" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                   <FormField
                     control={form.control}
                     name="gender"
@@ -234,47 +217,6 @@ const Setup = () => {
                     )}
                   />
                 </div>
-
-                {/* <div className="w-full flex flex-col">
-                  <Label
-                    htmlFor="Bus Route"
-                    className={cn(" text-violetBlue font-semibold pl-3")}
-                  >
-                    Bus Route
-                  </Label>
-                  <Select>
-                    <SelectTrigger
-                      className={cn(
-                        "outline-[#3D408A] focus:outline-[#3D408A] w-full"
-                      )}
-                    >
-                      <SelectValue
-                        placeholder="Select Route"
-                        className={cn(
-                          "focus:outline-[#3D408A] outline-[#3D408A]",
-                          montserrat_lighter.className
-                        )}
-                      />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        {array.map((_, ind) => (
-                          <SelectItem
-                            key={ind}
-                            value={`${ind + 1}`}
-                            className={cn(
-                              "focus:outline-none",
-                              montserrat.className
-                            )}
-                          >
-                            Route No {ind + 1}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </div> */}
-
                 <FormField
                   control={form.control}
                   name="routeno"
@@ -323,6 +265,78 @@ const Setup = () => {
                         </FormControl>
                         <FormMessage />
                       </div>
+                    </FormItem>
+                  )}
+                />
+                {/* <div className="w-full flex flex-col">
+                  <Label
+                    htmlFor="Bus Route"
+                    className={cn(" text-violetBlue font-semibold pl-3")}
+                  >
+                    Bus Route
+                  </Label>
+                  <Select>
+                    <SelectTrigger
+                      className={cn(
+                        "outline-[#3D408A] focus:outline-[#3D408A] w-full"
+                      )}
+                    >
+                      <SelectValue
+                        placeholder="Select Route"
+                        className={cn(
+                          "focus:outline-[#3D408A] outline-[#3D408A]",
+                          montserrat_lighter.className
+                        )}
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        {array.map((_, ind) => (
+                          <SelectItem
+                            key={ind}
+                            value={`${ind + 1}`}
+                            className={cn(
+                              "focus:outline-none",
+                              montserrat.className
+                            )}
+                          >
+                            Route No {ind + 1}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div> */}
+                <FormField
+                  control={form.control}
+                  name="area"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
+                        Area / Landmark Name{" "}
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="enter area / landmark name"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="coordinate"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel className="text-violetBlue font-semibold  pl-3">
+                        Enter coordinate
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="0.000.1111" {...field} />
+                      </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
