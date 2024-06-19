@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
+        className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100 scroll-smooth`}
       >
         {children}
       </body>

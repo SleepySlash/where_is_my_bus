@@ -7,7 +7,6 @@ import { contactSchema } from "@/lib/schemas";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -30,11 +29,10 @@ const ContactUs = () => {
       message: "",
     },
   });
-
   function onSubmit(values: z.infer<typeof contactSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    console.log(values.name);
   }
   return (
     <div>
@@ -49,7 +47,7 @@ const ContactUs = () => {
             onSubmit={form.handleSubmit(onSubmit)}
             className=" flex-grow flex flex-col justify-between"
           >
-            <div className="flex flex-col gap-5 flex-grow bg-red-300">
+            <div className="flex flex-col gap-5 flex-grow">
               <FormField
                 control={form.control}
                 name="name"
@@ -84,7 +82,7 @@ const ContactUs = () => {
               />
               <FormField
                 control={form.control}
-                name="name"
+                name="message"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
@@ -92,7 +90,7 @@ const ContactUs = () => {
                       <span className="text-red-600 align-super">*</span>
                     </FormLabel>
                     <FormControl>
-                      <textarea
+                      <Textarea
                         placeholder="shadcn"
                         {...field}
                         className="border border-violetBlue bg-white"

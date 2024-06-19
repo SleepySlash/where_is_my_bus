@@ -7,17 +7,20 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay"
 import carousel_item1svg from "@/public/carousel_item1.svg";
 import carousel_item2svg from "@/public/carousel_item2.svg";
 import carousel_item3svg from "@/public/carousel_item3.svg";
 import carousel_item4 from "@/public/carousel_item4.png";
+import React from "react";
 
 const CarouselSection = () => {
+  
   return (
     <div className="flex flex-col items-center py-10">
       <h1 className="text-violetBlue text-4xl font-jua mb-3">Our Features</h1>
 
-      <Carousel opts={{ loop: true }} className="max-w-[100vw]">
+      <Carousel opts={{ loop: true }} className="max-w-[100vw]" >
         <CarouselContent className="-ml-3 ">
           <CarouselItem className="flex flex-col items-center justify-center">
             <Image

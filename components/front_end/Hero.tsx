@@ -1,3 +1,4 @@
+"use client"
 import hero from "@/public/hero.svg";
 import Image from "next/image";
 import { Button } from "../ui/button";
@@ -6,6 +7,12 @@ import arrow_down from "@/public/arrow_down.svg";
 import Link from "next/link";
 
 const Hero = () => {
+
+  const scrollToSection = () =>
+     {
+      //@ts-ignore
+    document.getElementById('moreinfo').scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <div className="w-full">
       <Image src={hero} alt="hero" className="w-full object-cover" />
@@ -50,14 +57,14 @@ const Hero = () => {
           </Button>
         </Link>
 
-        <Link className="flex gap-2 mt-1 items-center" href={"#moreinfo"}>
+        <button className="flex gap-2 mt-1 items-center" onClick={scrollToSection}>
           <Image
             src={arrow_down}
             alt="arrowdown"
             className="object-contain size-4"
           />
           <p className="text-lg underline">Know More</p>
-        </Link>
+        </button>
       </div>
     </div>
   );
