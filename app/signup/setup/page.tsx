@@ -30,7 +30,7 @@ const Setup = () => {
   const [user, setUser] = useState(false);
   // const [busno,setBusno]=useState(1);
   return (
-    <div className="relative flex flex-col md:hidden font-kumbh_sans">
+    <div className="relative flex flex-col font-kumbh_sans">
       <Navbar />
 
       <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold  ">

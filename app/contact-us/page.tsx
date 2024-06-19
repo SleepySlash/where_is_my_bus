@@ -84,7 +84,7 @@ const ContactUs = () => {
               />
               <FormField
                 control={form.control}
-                name="name"
+                name="message"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
