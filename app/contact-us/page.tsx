@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ID, databases } from "@/lib/appwrite";
 
 const ContactUs = () => {
   const form = useForm<z.infer<typeof contactSchema>>({
@@ -32,9 +32,21 @@ const ContactUs = () => {
   });
 
   function onSubmit(values: z.infer<typeof contactSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const promise = databases.createDocument(
+      "66726ed900109d1aa8fd",
+      "66726f27003c233e23c5",
+      ID.unique(),
+      { Name: values.name, Email: values.email, Message: values.message }
+    );
+    promise.then(
+      function (response) {
+        console.log(response);
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+    console.log("Typed values: ", values);
   }
   return (
     <div>
@@ -84,7 +96,7 @@ const ContactUs = () => {
               />
               <FormField
                 control={form.control}
-                name="name"
+                name="message"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
@@ -92,7 +104,7 @@ const ContactUs = () => {
                       <span className="text-red-600 align-super">*</span>
                     </FormLabel>
                     <FormControl>
-                      <textarea
+                      <Textarea
                         placeholder="shadcn"
                         {...field}
                         className="border border-violetBlue bg-white"

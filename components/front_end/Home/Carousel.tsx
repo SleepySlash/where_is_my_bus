@@ -6,7 +6,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
 import carousel_item1svg from "@/public/carousel_item1.svg";
 import carousel_item2svg from "@/public/carousel_item2.svg";
 import carousel_item3svg from "@/public/carousel_item3.svg";
