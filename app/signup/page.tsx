@@ -13,6 +13,15 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { colleges } from "@/lib/utils";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import {
   Form,
@@ -34,7 +43,7 @@ export default function Home() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof contactSchema>) {
+  function onSubmit(values: z.infer<typeof signUpSchema>) {
     console.log(values);
   }
 
@@ -53,7 +62,7 @@ export default function Home() {
     <div className="relative flex flex-col font-kumbh_sans">
       <Navbar />
       <div className="flex flex-col w-full justify-between min-h-[93vh] items-center font-bold  ">
-        <Form {...form}  >
+        <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col flex-grow justify-between gap-1 w-full h-full"
@@ -74,41 +83,46 @@ export default function Home() {
                   control={form.control}
                   name="collegeName"
                   render={({ field }) => (
-                    <div className="gap-1 w-full">
-                      <Label
-                        htmlFor="collegeName"
-                        className={cn(" text-violetBlue font-semibold pl-3")}
-                      >
-                        College Name
-                      </Label>
-                      <Selectcollege />
-                    </div>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="mobileNumber"
-                  render={({ field }) => (
-                    <div className="gap-1 w-full">
-                      <Label
-                        htmlFor="mobilenumber"
-                        className=" text-[#3D408A] font-semibold pl-3"
-                      >
-                        Mobile Number
-                      </Label>
-                      <Input
-                        type="text"
-                        id="email"
-                        placeholder="Enter Mobile number"
-                        className={cn("focus:outline-[#3D408A]")}
-                      />
-                      <div className="flex flex-row items-end justify-end">
-                        <p className="text-sm text-violetBlue font-bold underline">
-                          Send OTP
-                        </p>
+                    <FormItem className=" w-full">
+                      <div className="gap-2 w-full">
+                        <FormLabel
+                          htmlFor="collegeName"
+                          className={cn(" text-violetBlue font-semibold pl-3")}
+                        >
+                          College Name
+                        </FormLabel>
+                        <FormControl>
+                           
+                          <div className="w-full">
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
+                                <SelectValue
+                                  placeholder="Select College"
+                                  className={cn(
+                                    "focus:outline-[#3D408A] outline-[#3D408A] "
+                                  )} {...field}
+                                />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectGroup>
+                                  {colleges.map((clg) => (
+                                    <SelectItem
+                                      key={clg.id}
+                                      value={clg.name}
+                                      className={cn("focus:outline-none")}
+                                      
+                                    >
+                                      {clg.name}
+                                    </SelectItem>
+                                  ))}
+                                </SelectGroup>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </FormControl>
+                        <FormMessage />
                       </div>
-                    </div>
+                    </FormItem>
                   )}
                 />
 
@@ -116,20 +130,58 @@ export default function Home() {
                   control={form.control}
                   name="mobileNumber"
                   render={({ field }) => (
-                    <div className=" w-full -mt-5 ">
-                      <Label
-                        htmlFor="otp"
-                        className=" text-[#3D408A] font-semibold pl-3"
-                      >
-                        OTP
-                      </Label>
-                      <Input
-                        type="number"
-                        id="otp"
-                        placeholder="Enter OTP"
-                        className={cn("focus:outline-[#3D408A]")}
-                      />
-                    </div>
+                    <FormItem className=" w-full">
+                      <div className="gap-1 w-full  items-stretch ">
+                        <FormLabel
+                          htmlFor="mobilenumber"
+                          className=" text-[#3D408A] font-semibold pl-3"
+                        >
+                          Mobile Number
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="text"
+                            id="email"
+                            placeholder="Enter Mobile number"
+                            className={cn("focus:outline-[#3D408A]")}
+                            {...field}
+                          />
+                        </FormControl>
+                        <div className="flex flex-row items-end justify-end">
+                          <p className="text-sm text-violetBlue font-bold underline">
+                            Send OTP
+                          </p>
+                        </div>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="otp"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <div className=" w-full -mt-5 ">
+                        <FormLabel
+                          htmlFor="otp"
+                          className=" text-[#3D408A] font-semibold pl-3"
+                        >
+                          OTP
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="number"
+                            id="otp"
+                            placeholder="Enter OTP"
+                            className={cn("focus:outline-[#3D408A]")}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
                   )}
                 />
               </div>
@@ -137,10 +189,11 @@ export default function Home() {
             <div className="w-full mt-8 items-center flex-1 justify-center relative">
               <div className="w-full flex flex-col  px-[1.5rem] ">
                 <Button
+                  type="submit"
                   variant={"blueg"}
                   size={"blueg"}
                   className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]  ")}
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Sign Up
                 </Button>
@@ -148,16 +201,15 @@ export default function Home() {
 
               <div className="flex flex-col items-center pt-2 text-violetBlue">
                 <p className="text-sm font-semibold">
-                  Are you {user ? "an Adminstrator" : " a Student"}?
+                  Are you {user ? "a Student" : " a Adminstrator"}?{" "}
                   <span className="text-[#3D408A] underline tracking-wide">
-                    Login{" "}
                     <Link
                       href="/signup"
                       onClick={() => {
                         setUser(!user);
                       }}
                     >
-                      Here
+                      Login Here
                     </Link>
                   </span>
                 </p>
