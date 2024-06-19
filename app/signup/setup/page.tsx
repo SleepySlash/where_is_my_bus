@@ -44,28 +44,20 @@ const Setup = () => {
     defaultValues: {
       firstname: "",
       lastname: "",
-      // rollno: "",
-     //@ts-ignore
+      rollno: "",
+      //@ts-ignore
       // dob: Date(),
-      // gender: "",
+      gender: "",
       routeno: "",
       area: "",
-      // coordinate: "",
+      coordinate: "",
     },
   });
   function onSubmit(values: z.infer<typeof profileSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log("Hello")
-    console.log(
-      values,
-      values.firstname,
-      values.lastname,
-      // values.rollno,
-      // values.gender,
-      // values.routeno,
-      // values.area,
-    );
+    console.log("Hello");
+    console.log(values);
   }
   const [user, setUser] = useState(false);
   // const [busno,setBusno]=useState(1);
@@ -173,7 +165,7 @@ const Setup = () => {
                   )}
                 /> */}
 
-                {/* <div className="flex justify-between items-center gap-4 ">
+                <div className="flex justify-between gap-4 w-full ">
                   <div>
                     <Label
                       htmlFor="Date of Birth"
@@ -188,16 +180,60 @@ const Setup = () => {
                       className={cn("focus:outline-[#3D408A] max-w-full")}
                     />
                   </div>
-                  <div>
-                    <Label
-                      htmlFor="Gender"
-                      className={cn(" text-violetBlue font-semibold pl-3")}
-                    >
-                      Gender
-                    </Label>
-                    <Selectgender />
-                  </div>
-                </div> */}
+                  <FormField
+                    control={form.control}
+                    name="gender"
+                    render={({ field }) => (
+                      <FormItem className=" w-full">
+                        <div className="gap-2 w-full">
+                          <FormLabel
+                            htmlFor="collegeName"
+                            className={cn(
+                              " text-violetBlue font-semibold pl-3"
+                            )}
+                          >
+                            Gender
+                          </FormLabel>
+                          <FormControl>
+                            <div className="w-full">
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
+                                  <SelectValue
+                                    placeholder="select gender"
+                                    className={cn(
+                                      "focus:outline-[#3D408A] outline-[#3D408A] "
+                                    )}
+                                    {...field}
+                                  />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectGroup>
+                                    {gender_.map((gen) => (
+                                      <SelectItem
+                                        key={gen.id}
+                                        value={gen.name}
+                                        className={cn(
+                                          "focus:outline-none",
+                                          montserrat.className
+                                        )}
+                                      >
+                                        {gen.name}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectGroup>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* <div className="w-full flex flex-col">
                   <Label
