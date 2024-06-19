@@ -1,44 +1,67 @@
 "use client";
 import Image from "next/image";
 import Navbar from "@/components/front_end/Navbar";
-import { Signup } from "@/components/front_end/Signup";
-import {Kumbh_Sans } from 'next/font/google';
-import { cn } from "@/lib/utils";
-import { SignupAdmin } from "@/components/front_end/SignupAdmin";
-import  Menu  from "@/components/front_end/Menu";
-
+import { Kumbh_Sans } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import locate from "@/public/locate.svg";
+import manage from "@/public/manage.svg";
+import customise from "@/public/customise.svg";
 const kumbh_sans_darker = Kumbh_Sans({
-  weight: '700',
-  subsets: ['latin'],
+  weight: "700",
+  subsets: ["latin"],
 });
 
 export default function Home() {
   return (
-    // <div className="relative flex flex-col min-h-screen md:hidden">
-    //   <Navbar />
-    //   <div className="flex flex-col items-start mt-[4rem] p-[1.5rem] ">
-    //     <p className={cn(" font-semibold text-[#919191] text-[1.4rem]",kumbh_sans_darker.className)}>
-    //       Adminstator
-    //     </p>
-    //     <p className={cn("text-[#3D408A] text-5xl font-semibold",kumbh_sans_darker.className)}>Sign Up</p>
-
-    //     <div className={cn("p-2 pt-[2rem] w-full flex items-center justify-center z-20")}>
-    //       <SignupAdmin />
-    //     </div>
-        
-    //     <div className="absolute bottom-0 left-0 right-0 z-0">
-    //       <Image
-    //         src={"/Ellipse.svg"}
-    //         alt={"Ellipse"}
-    //         width={767}
-    //         height={10}
-    //       />
-    //     </div>
-    //     {/* <button type="button" className="h-auto cursor-pointer" onClick={()=>console.log('CLicked')}>sendotp</button> */}
-    //   </div>
-    // </div>
     <div>
-      <Menu/>
+      <div className="flex flex-col items-center justify-center w-full">
+        <Navbar />
+        <div className="min-h-[93vh] flex flex-col gap-2 p-7">
+          <div className="relative">
+            <Image src={locate} alt="locate" className="" />
+            <div className="absolute bottom-6 left-6">
+              <Button
+                variant={"blueg"}
+                className="rounded-full font-kumbh_sans font-semibold text-md shadow-sm shadow-gray-500 py-[26px] w-[200px]"
+              >
+                Track Buses
+              </Button>
+            </div>
+          </div>
+          <div className=" relative">
+            <Image
+              src={manage}
+              alt="manage"
+              // className=''
+              // width={370}
+            />
+            <div className="absolute bottom-6 left-6 z-[100]">
+              <Button
+                variant={"yellog"}
+                className="rounded-full font-kumbh_sans font-semibold text-md shadow-xl py-[26px] w-[200px]"
+              >
+                Manage Users
+              </Button>
+            </div>
+          </div>
+          <div className="relative">
+            <Image
+              src={customise}
+              alt="customise"
+              // className=''
+              // width={370}
+            />
+            <div className="absolute z-10 bottom-4 left-6">
+              <Button
+                variant={"whiteg"}
+                className="rounded-full font-kumbh_sans font-semibold text-violetBlue text-md shadow-xl py-[26px] w-[200px] z-1"
+              >
+                Admin Settings
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
