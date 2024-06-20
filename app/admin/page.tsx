@@ -1,15 +1,13 @@
 "use client";
 import Image from "next/image";
 import Navbar from "@/components/front_end/Navbar";
-import { Signup } from "@/components/front_end/Signup";
-import {Kumbh_Sans } from 'next/font/google';
+import { Kumbh_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { SignupAdmin } from "@/components/front_end/SignupAdmin";
-import  Menu  from "@/components/front_end/Menu";
+import Menu from "@/components/front_end/Menu";
 
 const kumbh_sans_darker = Kumbh_Sans({
-  weight: '700',
-  subsets: ['latin'],
+  weight: "700",
+  subsets: ["latin"],
 });
 
 export default function Home() {
@@ -25,7 +23,7 @@ export default function Home() {
     //     <div className={cn("p-2 pt-[2rem] w-full flex items-center justify-center z-20")}>
     //       <SignupAdmin />
     //     </div>
-        
+
     //     <div className="absolute bottom-0 left-0 right-0 z-0">
     //       <Image
     //         src={"/Ellipse.svg"}
@@ -38,7 +36,7 @@ export default function Home() {
     //   </div>
     // </div>
     <div>
-      <Menu/>
+      <Menu />
     </div>
   );
 }
