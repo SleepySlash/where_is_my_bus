@@ -3,9 +3,6 @@ import { Inter, Jua, Manrope, Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/toaster";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { account } from "@/lib/appwrite";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,28 +34,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const router = useRouter();
-  const [laoding, setLoading] = useState(true);
-  const [loggedInUser, setLoggedInUser] = useState<any>(null);
-
-  useEffect(() => {
-    const getSession = async () => {
-      const x = await account.get();
-      console.log(x);
-      setLoggedInUser(x);
-      setLoading(false);
-    };
-    getSession();
-  }, []);
-
-  if (laoding) {
-    return <div>Loading...</div>;
-  }
-
-  if (!loggedInUser) {
-    router.push("/sign-in");
-  }
-
   return (
     <html lang="en">
       <body
