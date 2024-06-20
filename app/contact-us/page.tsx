@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/front_end/Navbar";
+import { useToast } from "@/components/ui/use-toast";
 
 import { contactSchema } from "@/lib/schemas";
 
@@ -22,6 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ID, databases } from "@/lib/appwrite";
 
 const ContactUs = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -46,6 +48,11 @@ const ContactUs = () => {
         console.log(error);
       }
     );
+    toast({
+      description: "Form submitted successfully",
+    });
+    form.reset();
+
     console.log("Typed values: ", values);
   }
   return (
@@ -61,7 +68,7 @@ const ContactUs = () => {
             onSubmit={form.handleSubmit(onSubmit)}
             className=" flex-grow flex flex-col justify-between"
           >
-            <div className="flex flex-col gap-5 flex-grow bg-red-300">
+            <div className="flex flex-col gap-5 flex-grow ">
               <FormField
                 control={form.control}
                 name="name"

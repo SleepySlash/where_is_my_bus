@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Jua, Manrope, Kumbh_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/front_end/Navbar";
-import { cn } from "@/lib/utils";
+
+import { Toaster } from "@/components/ui/toaster";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { account } from "@/lib/appwrite";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,12 +37,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
+  const [laoding, setLoading] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState<any>(null);
+
+  useEffect(() => {
+    const getSession = async () => {
+      const x = await account.get();
+      console.log(x);
+      setLoggedInUser(x);
+      setLoading(false);
+    };
+    getSession();
+  }, []);
+
+  if (laoding) {
+    return <div>Loading...</div>;
+  }
+
+  if (!loggedInUser) {
+    router.push("/sign-in");
+  }
+
   return (
     <html lang="en">
       <body
         className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
