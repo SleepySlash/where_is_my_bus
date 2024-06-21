@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Jua, Manrope, Kumbh_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/front_end/Navbar";
-import { cn } from "@/lib/utils";
+
+import { Toaster } from "@/components/ui/toaster";
+import AuthProvider from "@/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,12 +36,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
-      >
-        {children}
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body
+          className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

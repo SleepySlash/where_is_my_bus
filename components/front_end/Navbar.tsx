@@ -9,6 +9,8 @@ import settings from "@/public/settings.svg";
 import { Button } from "../ui/button";
 import Item from "../ui/Sidebar/Item";
 import Social from "../ui/Sidebar/Social";
+import { account } from "@/lib/appwrite";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   Route?: React.ReactNode;
@@ -16,16 +18,24 @@ interface NavbarProps {
 }
 const Navbar = ({ Route, BusDetails }: NavbarProps) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const logout = async () => {
+    await account.deleteSession("current");
+    router.push("/");
+  };
 
   return (
     <>
-      <div className="sticky top-0 z-[1000] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
+      <div className="sticky top-0 z-[100] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
         <Link href="/" className="">
           <Image src={logo} alt="logo" className="cursor-pointer h-8 w-8" />
         </Link>
 
         {/* The Route Details will be sent as a React Component*/}
         <span>{Route}</span>
+
+        <Button onClick={logout}>Log out</Button>
 
         <Button
           onClick={() => setOpen(true)}

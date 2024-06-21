@@ -17,3 +17,9 @@ export const adminAccountSchema = z.object({
   lastName: z.string().min(2).max(50),
   role: z.string().min(5).max(25),
 });
+
+export const createUserSchema = z.object({
+  name: z.string().min(2).max(50).optional(),
+  phone: z.string().min(10).max(10),
+  rollNumber: z.string().min(2).max(50),
+});

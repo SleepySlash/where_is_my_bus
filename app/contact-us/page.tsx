@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/front_end/Navbar";
+import { useToast } from "@/components/ui/use-toast";
 
 import { contactSchema } from "@/lib/schemas";
 
@@ -12,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,8 +20,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ID, databases } from "@/lib/appwrite";
 
 const ContactUs = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -32,9 +34,26 @@ const ContactUs = () => {
   });
 
   function onSubmit(values: z.infer<typeof contactSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const promise = databases.createDocument(
+      "66726ed900109d1aa8fd",
+      "66726f27003c233e23c5",
+      ID.unique(),
+      { Name: values.name, Email: values.email, Message: values.message }
+    );
+    promise.then(
+      function (response) {
+        console.log(response);
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+    toast({
+      description: "Form submitted successfully",
+    });
+    form.reset();
+
+    console.log("Typed values: ", values);
   }
   return (
     <div>
@@ -49,7 +68,7 @@ const ContactUs = () => {
             onSubmit={form.handleSubmit(onSubmit)}
             className=" flex-grow flex flex-col justify-between"
           >
-            <div className="flex flex-col gap-5 flex-grow bg-red-300">
+            <div className="flex flex-col gap-5 flex-grow ">
               <FormField
                 control={form.control}
                 name="name"
@@ -92,7 +111,7 @@ const ContactUs = () => {
                       <span className="text-red-600 align-super">*</span>
                     </FormLabel>
                     <FormControl>
-                      <textarea
+                      <Textarea
                         placeholder="shadcn"
                         {...field}
                         className="border border-violetBlue bg-white"
