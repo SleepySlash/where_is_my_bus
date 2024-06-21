@@ -7,6 +7,7 @@ const AuthContext = createContext<any>(undefined);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getUser = async () => {
@@ -17,11 +18,23 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUser(null);
         console.log(error);
       }
+      setLoading(false);
     };
     getUser();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="min-[100vh] w-full m-auto">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

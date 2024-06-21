@@ -55,17 +55,11 @@ const LoginPage = () => {
     console.log("Logged in");
   };
 
-  const logout = async () => {
-    console.log(loggedInUser);
-    await account.deleteSession("current");
-    setLoggedInUser(null);
-  };
-
   if (loggedInUser) {
     return (
       <div>
         <p>Logged in as {loggedInUser.name}</p>
-        <button type="button" onClick={logout} className="bg-red-500">
+        <button type="button" className="bg-red-500">
           Logout
         </button>
         <button
