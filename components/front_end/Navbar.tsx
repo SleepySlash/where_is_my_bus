@@ -33,7 +33,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
         >
           <Image src={settings} alt="settings" className="h-8 w-8" />
         </Button>
-      </div>
+      </div>    
 
       {/* When there Route Details sent they have to be rendered as bar below the navbar  */}
       <div
