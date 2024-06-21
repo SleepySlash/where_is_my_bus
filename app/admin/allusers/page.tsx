@@ -2,9 +2,11 @@ import Navbar from "@/components/front_end/Navbar";
 import React from "react";
 import Image from "next/image";
 import UserComponent from "@/components/front_end/Admin/UserComponent";
+import Link from "next/link";
 
 const BusSelection = () => {
   const phones = ["1234567890", "1234567890", "1234567890"];
+
   return (
     <div className="h-[100vh] w-[100vw] font-manrope text-violetBlue mx-auto">
       <Navbar />
@@ -18,13 +20,15 @@ const BusSelection = () => {
             className="h-7 w-7"
           />
           <h1 className="text-2xl font-semibold text-center mt-1">Users</h1>
-          <Image
-            src={"/pen.svg"}
-            alt="back"
-            height={15}
-            width={15}
-            className="h-7 w-7"
-          />
+          <Link href={"/admin/createUser"}>
+            <Image
+              src={"/pen.svg"}
+              alt="back"
+              height={15}
+              width={15}
+              className="h-7 w-7"
+            />
+          </Link>
         </div>
 
         <div className="h-[1px]  bg-violetBlue w-full" />

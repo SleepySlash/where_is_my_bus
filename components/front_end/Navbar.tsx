@@ -9,6 +9,8 @@ import settings from "@/public/settings.svg";
 import { Button } from "../ui/button";
 import Item from "../ui/Sidebar/Item";
 import Social from "../ui/Sidebar/Social";
+import { account } from "@/lib/appwrite";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   Route?: React.ReactNode;
@@ -16,6 +18,12 @@ interface NavbarProps {
 }
 const Navbar = ({ Route, BusDetails }: NavbarProps) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const logout = async () => {
+    await account.deleteSession("current");
+    router.push("/");
+  };
 
   return (
     <>
@@ -26,6 +34,8 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
         {/* The Route Details will be sent as a React Component*/}
         <span>{Route}</span>
+
+        <Button onClick={logout}>Log out</Button>
 
         <Button
           onClick={() => setOpen(true)}
