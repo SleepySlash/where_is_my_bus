@@ -54,13 +54,11 @@ const Setup = () => {
       gender: "",
       routeno: "",
       area: "",
-      eveningCoordinate: "", // Add default value for eveningCoordinate
+      eveningCoordinate: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof profileSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log("Hello");
     console.log(values);
   }
@@ -77,7 +75,7 @@ const Setup = () => {
   const removeEveningStop = (event: any) => {
     event.preventDefault();
     setEveningStop(false);
-    form.resetField("eveningCoordinate"); // Reset the eveningCoordinate field
+    form.resetField("eveningCoordinate");
   };
 
   return (
