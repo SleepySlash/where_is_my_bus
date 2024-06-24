@@ -28,7 +28,14 @@ const montserrat_lighter = Kumbh_Sans({
 const array = Array.from({ length: 24 });
 const Setup = () => {
   const [user, setUser] = useState(false);
+  const [eveningStop, setEveningStop] = useState(false);
   // const [busno,setBusno]=useState(1);
+
+  const scrollToEveningStop = () => {
+    document
+      .getElementById("eveningStop")
+      ?.scrollIntoView({ behavior: "instant" });
+  };
   return (
     <div className="relative flex flex-col font-kumbh_sans">
       <Navbar />
@@ -174,18 +181,66 @@ const Setup = () => {
 
             <div className="w-full">
               <Label
-                htmlFor="Location Coordinates"
+                htmlFor="Bus Stop"
                 className={cn(" text-violetBlue font-semibold pl-3")}
               >
-                Location Coordinates
+                Bus Stop
               </Label>
               <Input
                 type="text"
-                id="locationCoordinates"
+                id="busStop"
                 placeholder="Enter Location Coordinates"
                 className={cn("focus:outline-[#3D408A]")}
               />
+              <div className="w-full -mr-52 text-sm text-end ">
+                <span className="text-gray-500">
+                  is your Evening Stop different ?{" "}
+                  <Link
+                    href=""
+                    className="bg-transparent "
+                    onClick={() => {
+                      setEveningStop(true);
+                      scrollToEveningStop();
+                    }}
+                  >
+                    <span className="text-violetBlue font-bold underline">
+                      click me
+                    </span>
+                  </Link>
+                </span>
+              </div>
             </div>
+            {eveningStop && (
+              <div className="w-full">
+                <Label
+                  htmlFor="Evening Stop"
+                  className={cn(" text-violetBlue font-semibold pl-3")}
+                >
+                  Evening Stop
+                </Label>
+                <Input
+                  type="text"
+                  id="eveningStop"
+                  placeholder="Enter Location Coordinates"
+                  className={cn("focus:outline-[#3D408A]")}
+                />
+                <div className="w-full text-end text-sm  ">
+                  <span>
+                    no Evening stop ?,
+                    <Link href="">
+                      <span
+                        className="text-violetBlue font-bold underline"
+                        onClick={() => {
+                          setEveningStop(false);
+                        }}
+                      >
+                        click to remove
+                      </span>
+                    </Link>
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
