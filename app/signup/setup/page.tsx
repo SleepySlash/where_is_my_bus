@@ -29,18 +29,22 @@ const array = Array.from({ length: 24 });
 const Setup = () => {
   const [user, setUser] = useState(false);
   const [eveningStop, setEveningStop] = useState(false);
-  // const [busno,setBusno]=useState(1);
 
-  const scrollToEveningStop = () => {
-    document
-      .getElementById("eveningStop")
-      ?.scrollIntoView({ behavior: "instant" });
+  const scrollToEveningStop = (event: any) => {
+    event.preventDefault();
+    setEveningStop(true);
+    document.getElementById("end")?.scrollIntoView({ behavior: "instant" });
   };
+  const removeEveningStop = (event: any) => {
+    event.preventDefault();
+    setEveningStop(false);
+  };
+
   return (
     <div className="relative flex flex-col font-kumbh_sans">
       <Navbar />
 
-      <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold  ">
+      <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold">
         <div className="w-full flex-1 p-[1.5rem]">
           <p className={cn(" font-bold text-[#919191] text-xl")}>
             Account Details
@@ -98,7 +102,7 @@ const Setup = () => {
               />
             </div>
 
-            <div className="flex justify-between items-center gap-4 ">
+            <div className="flex justify-between items-center gap-4">
               <div>
                 <Label
                   htmlFor="Date of Birth"
@@ -192,55 +196,51 @@ const Setup = () => {
                 placeholder="Enter Location Coordinates"
                 className={cn("focus:outline-[#3D408A]")}
               />
-              <div className="w-full -mr-52 text-sm text-end ">
-                <span className="text-gray-500">
-                  is your Evening Stop different ?{" "}
-                  <Link
-                    href=""
-                    className="bg-transparent "
-                    onClick={() => {
-                      setEveningStop(true);
-                      scrollToEveningStop();
-                    }}
+              <div
+                className={`w-full -mr-52 text-sm text-end ${
+                  !eveningStop ? "" : "hidden"
+                } `}
+              >
+                <span className="text-[#9CA3AF]">
+                  Is your Evening Stop different?{" "}
+                  <a
+                    href="#end"
+                    className="bg-transparent text-violetBlue font-bold underline"
+                    onClick={scrollToEveningStop}
                   >
-                    <span className="text-violetBlue font-bold underline">
-                      click me
-                    </span>
-                  </Link>
+                    Click me
+                  </a>
                 </span>
               </div>
             </div>
-            {eveningStop && (
-              <div className="w-full">
-                <Label
-                  htmlFor="Evening Stop"
-                  className={cn(" text-violetBlue font-semibold pl-3")}
-                >
-                  Evening Stop
-                </Label>
-                <Input
-                  type="text"
-                  id="eveningStop"
-                  placeholder="Enter Location Coordinates"
-                  className={cn("focus:outline-[#3D408A]")}
-                />
-                <div className="w-full text-end text-sm  ">
-                  <span>
-                    no Evening stop ?,
-                    <Link href="">
-                      <span
-                        className="text-violetBlue font-bold underline"
-                        onClick={() => {
-                          setEveningStop(false);
-                        }}
-                      >
-                        click to remove
-                      </span>
-                    </Link>
-                  </span>
-                </div>
+
+            <div className={` ${!eveningStop ? "hidden" : "w-full"}`}>
+              <Label
+                htmlFor="Evening Stop"
+                className={cn(" text-violetBlue font-semibold pl-3")}
+              >
+                Evening Stop
+              </Label>
+              <Input
+                type="text"
+                id="eveningStop"
+                placeholder="Enter Location Coordinates"
+                className={cn("focus:outline-[#3D408A]")}
+              />
+              <div className="w-full text-[#9CA3AF] text-end text-sm">
+                <span>
+                  No Evening stop?{" "}
+                  <a
+                    href="#"
+                    id="end"
+                    className="text-violetBlue font-bold underline"
+                    onClick={removeEveningStop}
+                  >
+                    Click to remove
+                  </a>
+                </span>
               </div>
-            )}
+            </div>
           </div>
         </div>
         <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
