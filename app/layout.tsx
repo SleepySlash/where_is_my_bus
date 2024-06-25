@@ -36,15 +36,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <body
-          className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
-        >
+    <html lang="en">
+      <body
+        className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
+      >
+        <AuthProvider>
           {children}
           <Toaster />
-        </body>
-      </html>
-    </AuthProvider>
+        </AuthProvider>
+      </body>
+    </html>
   );
 }
