@@ -26,14 +26,19 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { account } from "@/lib/appwrite";
 
 export default function Home() {
+  const login = async ({ userId, secret }: any) => {
+    await account.createSession(userId, secret);
+    const x = await account.get();
+    console.log("Logged in");
+  };
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -94,18 +99,26 @@ export default function Home() {
                           College Name
                         </FormLabel>
                         <FormControl>
-                           
                           <div className="w-full">
-                            <Select onValueChange={(value)=>{
-                              field.onChange(value)
-                              setSelect(!select)
-                            }}  defaultValue={field.value} >
-                              <SelectTrigger className={cn("outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg font-bold", select ? "text-[#A7A7A7]":"text-black")}>
+                            <Select
+                              onValueChange={(value) => {
+                                field.onChange(value);
+                                setSelect(!select);
+                              }}
+                              defaultValue={field.value}
+                            >
+                              <SelectTrigger
+                                className={cn(
+                                  "outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg font-bold",
+                                  select ? "text-[#A7A7A7]" : "text-black"
+                                )}
+                              >
                                 <SelectValue
                                   placeholder="Select College"
                                   className={cn(
                                     "focus:outline-[#3D408A] outline-[#3D408A]"
-                                  )} {...field}
+                                  )}
+                                  {...field}
                                 />
                               </SelectTrigger>
                               <SelectContent>
@@ -114,8 +127,9 @@ export default function Home() {
                                     <SelectItem
                                       key={clg.id}
                                       value={clg.name}
-                                      className={cn("focus:outline-none text-black ")}
-                                      
+                                      className={cn(
+                                        "focus:outline-none text-black "
+                                      )}
                                     >
                                       {clg.name}
                                     </SelectItem>
@@ -152,11 +166,11 @@ export default function Home() {
                             {...field}
                           />
                         </FormControl>
-                        <div className="flex flex-row items-end justify-end">
-                          <p className="text-sm text-violetBlue font-bold underline">
-                            Send OTP
-                          </p>
-                        </div>
+
+                        <p className="text-sm text-violetBlue font-bold underline text-end">
+                          Send OTP
+                        </p>
+
                         <FormMessage />
                       </div>
                     </FormItem>
@@ -220,18 +234,14 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 z-[-1]">
-                <Image
-                  src={"/Ellipse.svg"}
-                  alt={"Ellipse"}
-                  width={767}
-                  height={10}
-                  className="w-full object-cover"
-                />
-              </div>
+              <Image
+                src={"/Ellipse.svg"}
+                alt={"Ellipse"}
+                width={767}
+                height={10}
+                className="w-full object-cover absolute bottom-0 left-0 right-0 z-[-1]"
+              />
             </div>
-
-            {/* <button type="button" className="h-auto cursor-pointer" onClick={()=>console.log('CLicked')}>sendotp</button> */}
           </form>
         </Form>
       </div>
