@@ -286,8 +286,8 @@
           const coordinatesElement =
             document.getElementById("coordinates").innerText;
           const coordinatesString = coordinatesElement.replace(/[\[\]\s]/g, "");
-          console.log(coordinatesElement);
-          window.parent.postMessage(coordinatesElement, "*");
+          console.log(coordinatesString);
+          window.parent.postMessage(coordinatesString, "*");
 
           const saveButton = document.getElementById("save-button");
           saveButton.innerText = "Saved!";
@@ -297,7 +297,7 @@
         });
 
       window.addEventListener("message", function (event) {
-        console.log("Coordinates received:", event.data);
+        // console.log("Coordinates :", event.data);
       });
 
       document

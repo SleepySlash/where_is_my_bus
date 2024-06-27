@@ -7,7 +7,7 @@ import { busroute_nos, cn, gender_ } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Kumbh_Sans, Montserrat } from "next/font/google";
 import { profileSchema } from "@/lib/schemas";
-import { set, z } from "zod";
+import { any, set, z } from "zod";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -54,8 +54,8 @@ const Setup = () => {
       dob: "",
       gender: "",
       routeno: "",
-      area: "",
-      eveningCoordinate: "",
+      stopCoordinates: "",
+      eveningCoordinates: "",
     },
   });
 
@@ -67,42 +67,60 @@ const Setup = () => {
   const [user, setUser] = useState(false);
   const [eveningStop, setEveningStop] = useState(false);
   const [iframe, setIframe] = useState(false);
-  const [iframeValue, setIframeValue] = useState(null);
+  const [iframeValue, setIframeValue] = useState<string | null>(null);
+  const [stop, setStop] = useState("");
 
   useEffect(() => {
-    const handleMessage = (event: any) => {
+    const handleMapForCoordinates = (event: any) => {
       // Ensure the message is coming from the expected origin
       if (event.origin !== window.location.origin) return;
 
       // Handle the received message
       const data = event.data;
-      console.log("Received data:", data);
+      console.log("Received data in next : ", data);
 
-      // Check if the data is an object
-      if (typeof data === "object" && data !== null) {
-        // Process the object data as needed
-        if (data.coordinates !== undefined) {
-          setIframeValue(data.coordinates);
-          setIframe(true);
+      // Check if the data is a string
+      if (typeof data === "string") {
+        // Split the string to extract coordinates
+        const coordinates = data.split(",");
+        if (coordinates.length === 2) {
+          const lat1 = coordinates[0];
+          const lat2 = coordinates[1];
+          console.log("Coordinates: ", lat1, lat2);
+          setIframeValue(data); // Store the coordinates as a single string
+          setIframe(!iframe); // Close the iframe
+          if (stop === "stopCoordinates")
+            form.setValue("stopCoordinates", data);
+          else {
+            form.setValue("eveningCoordinates", data);
+          }
         } else {
-          console.error(
-            "Received object data without 'coordinates' key:",
-            data
-          );
+          console.error("String data does not contain valid coordinates");
         }
-      } else {
-        // Handle string or other primitive data
-        setIframeValue(data);
-        setIframe(true);
       }
     };
 
-    window.addEventListener("message", handleMessage);
+    window.addEventListener("message", handleMapForCoordinates);
 
     return () => {
-      window.removeEventListener("message", handleMessage);
+      window.removeEventListener("message", handleMapForCoordinates);
     };
-  }, []);
+  }, [form, iframe, stop]);
+
+  const openIframeAndSetField = (field: string) => {
+    setIframe(true); // Open the iframe
+    setStop(field); // Set which coordinate field to update (stopCoordinates or eveningCoordinates)
+  };
+
+  // Handle click on stopCoordinates
+  const handleStopCoordinatesClick = () => {
+    openIframeAndSetField("stopCoordinates");
+  };
+
+  // Handle click on eveningCoordinates
+  const handleEveningCoordinatesClick = () => {
+    openIframeAndSetField("eveningCoordinates");
+  };
 
   const scrollToEveningStop = (event: any) => {
     event.preventDefault();
@@ -368,7 +386,7 @@ const Setup = () => {
 
                   <FormField
                     control={form.control}
-                    name="coordinate"
+                    name="stopCoordinates"
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <div>
@@ -384,11 +402,11 @@ const Setup = () => {
                             <div className="w-full justify-between flex relative">
                               <Input
                                 type="text"
-                                id="busStop"
+                                id="stopCoordinates"
                                 placeholder="Location Coordinates"
-                                value={iframeValue}
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
+                                // Ensure this is placed after the spread to use iframeValue explicitly
                               />
 
                               <Image
@@ -407,6 +425,8 @@ const Setup = () => {
                                 className="mx-5"
                                 onClick={() => {
                                   setIframe(!iframe);
+                                  setStop("stopCoordinates");
+                                  handleStopCoordinatesClick;
                                 }}
                               />
                             </div>
@@ -435,7 +455,7 @@ const Setup = () => {
 
                   <FormField
                     control={form.control}
-                    name="eveningCoordinate"
+                    name="eveningCoordinates"
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <div
@@ -455,7 +475,6 @@ const Setup = () => {
                                 type="text"
                                 id="eveningStop"
                                 placeholder="Evening Coordinates"
-                                value={iframeValue}
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
                               />
@@ -476,6 +495,8 @@ const Setup = () => {
                                 className="mx-5"
                                 onClick={() => {
                                   setIframe(!iframe);
+                                  setStop("eveningCoordinates");
+                                  handleEveningCoordinatesClick;
                                 }}
                               />
                             </div>
