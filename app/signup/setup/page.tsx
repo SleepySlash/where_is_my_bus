@@ -50,7 +50,6 @@ const Setup = () => {
       firstname: "",
       lastname: "",
       rollno: "",
-      //@ts-ignore
       dob: "",
       gender: "",
       routeno: "",
@@ -67,32 +66,33 @@ const Setup = () => {
   const [user, setUser] = useState(false);
   const [eveningStop, setEveningStop] = useState(false);
   const [iframe, setIframe] = useState(false);
-  const [iframeValue, setIframeValue] = useState<string | null>(null);
+  const [morningIframeValue, setMorningIframeValue] = useState<string | null>(
+    null
+  );
+  const [eveningIframeValue, setEveningIframeValue] = useState<string | null>(
+    null
+  );
   const [stop, setStop] = useState("");
 
   useEffect(() => {
     const handleMapForCoordinates = (event: any) => {
-      // Ensure the message is coming from the expected origin
       if (event.origin !== window.location.origin) return;
 
-      // Handle the received message
       const data = event.data;
-      console.log("Received data in next : ", data);
 
-      // Check if the data is a string
       if (typeof data === "string") {
-        // Split the string to extract coordinates
         const coordinates = data.split(",");
         if (coordinates.length === 2) {
           const lat1 = coordinates[0];
           const lat2 = coordinates[1];
           console.log("Coordinates: ", lat1, lat2);
-          setIframeValue(data); // Store the coordinates as a single string
-          setIframe(!iframe); // Close the iframe
-          if (stop === "stopCoordinates")
-            form.setValue("stopCoordinates", data);
-          else {
-            form.setValue("eveningCoordinates", data);
+          setIframe(false);
+          if (stop === "stopCoordinates") {
+            setMorningIframeValue(data);
+            console.log("morning " + morningIframeValue);
+          } else if (stop === "eveningCoordinates") {
+            setEveningIframeValue(data);
+            console.log("evening coordinates" + eveningIframeValue);
           }
         } else {
           console.error("String data does not contain valid coordinates");
@@ -101,26 +101,7 @@ const Setup = () => {
     };
 
     window.addEventListener("message", handleMapForCoordinates);
-
-    return () => {
-      window.removeEventListener("message", handleMapForCoordinates);
-    };
-  }, [form, iframe, stop]);
-
-  const openIframeAndSetField = (field: string) => {
-    setIframe(true); // Open the iframe
-    setStop(field); // Set which coordinate field to update (stopCoordinates or eveningCoordinates)
-  };
-
-  // Handle click on stopCoordinates
-  const handleStopCoordinatesClick = () => {
-    openIframeAndSetField("stopCoordinates");
-  };
-
-  // Handle click on eveningCoordinates
-  const handleEveningCoordinatesClick = () => {
-    openIframeAndSetField("eveningCoordinates");
-  };
+  }, [eveningIframeValue, form, iframe, morningIframeValue, stop]);
 
   const scrollToEveningStop = (event: any) => {
     event.preventDefault();
@@ -131,7 +112,7 @@ const Setup = () => {
   const removeEveningStop = (event: any) => {
     event.preventDefault();
     setEveningStop(false);
-    form.resetField("eveningCoordinate");
+    form.resetField("eveningCoordinates");
   };
   return (
     <>
@@ -219,7 +200,7 @@ const Setup = () => {
 
                   <FormField
                     control={form.control}
-                    name="RollNo"
+                    name="rollno"
                     render={({ field }) => (
                       <FormItem className=" w-full">
                         <div>
@@ -332,7 +313,7 @@ const Setup = () => {
 
                   <FormField
                     control={form.control}
-                    name="routeNo"
+                    name="routeno"
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <div className="w-full flex flex-col">
@@ -406,7 +387,7 @@ const Setup = () => {
                                 placeholder="Location Coordinates"
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
-                                // Ensure this is placed after the spread to use iframeValue explicitly
+                                value={morningIframeValue}
                               />
 
                               <Image
@@ -424,9 +405,8 @@ const Setup = () => {
                                 height={10}
                                 className="mx-5"
                                 onClick={() => {
-                                  setIframe(!iframe);
+                                  setIframe(true);
                                   setStop("stopCoordinates");
-                                  handleStopCoordinatesClick;
                                 }}
                               />
                             </div>
@@ -473,10 +453,11 @@ const Setup = () => {
                             <div className="w-full justify-between flex relative">
                               <Input
                                 type="text"
-                                id="eveningStop"
+                                id="eveningCoordinates"
                                 placeholder="Evening Coordinates"
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
+                                value={eveningIframeValue}
                               />
 
                               <Image
@@ -494,9 +475,8 @@ const Setup = () => {
                                 height={10}
                                 className="mx-5"
                                 onClick={() => {
-                                  setIframe(!iframe);
-                                  setStop("eveningCoordinates");
-                                  handleEveningCoordinatesClick;
+                                  setIframe(true);
+                                  setStop("eveningCoordinates ");
                                 }}
                               />
                             </div>
@@ -522,16 +502,16 @@ const Setup = () => {
                 </div>
               </div>
               <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
-                <Link href="/" className="flex flex-col w-full px-6">
-                  <Button
-                    type="submit"
-                    variant={"blueg"}
-                    size={"blueg"}
-                    className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]")}
-                  >
-                    <p>{user ? "Save" : "Proceed"}</p>
-                  </Button>
-                </Link>
+                {/* <Link href="/" className="flex flex-col w-full px-6"> */}
+                <Button
+                  type="submit"
+                  variant={"blueg"}
+                  size={"blueg"}
+                  className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]")}
+                >
+                  <p>{user ? "Save" : "Proceed"}</p>
+                </Button>
+                {/* </Link> */}
               </div>
             </form>
           </Form>
@@ -542,9 +522,7 @@ const Setup = () => {
         <div>
           <iframe
             src="/maps/locationpicker.html"
-            className={`h-screen w-screen ${
-              iframeValue ? setIframe(false) : ""
-            }`}
+            className={`h-screen w-screen`}
             title="Iframe Example"
           />
         </div>

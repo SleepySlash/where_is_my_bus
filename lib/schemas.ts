@@ -23,3 +23,13 @@ export const createUserSchema = z.object({
   phone: z.string().min(10).max(10),
   rollNumber: z.string().min(2).max(50),
 });
+export const profileSchema = z.object({
+  firstname: z.string().min(2).max(50).optional(),
+  lastname: z.string().min(2).max(10),
+  rollno: z.string().min(10).max(10),
+  dob: z.string().min(10).max(10),
+  gender: z.string().min(4).max(6),
+  routeno: z.string(),
+  stopCoordinates: z.string(),
+  eveningCoordinates: z.string(),
+});
