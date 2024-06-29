@@ -4,12 +4,12 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-export const busroute_nos=[
+export const busroute_nos = [
   {
-    name:"Route No",
-    id:1
+    name: "Route No",
+    id: 1,
   },
-]
+];
 export const colleges = [
   {
     name: "MLRIT",
@@ -30,16 +30,15 @@ export const colleges = [
 ];
 export const gender_ = [
   {
-    name:'Male',
-    id:1,
+    name: "Male",
+    id: 1,
   },
   {
-    name:'Female',
-    id:2,
+    name: "Female",
+    id: 2,
   },
   {
-    name:'Other..',
-    id:3,
-  }
+    name: "Others",
+    id: 3,
+  },
 ];
-

@@ -274,6 +274,7 @@ const Setup = () => {
                                 <Select
                                   onValueChange={field.onChange}
                                   defaultValue={field.value}
+                                  {...field}
                                 >
                                   <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
                                     <SelectValue
@@ -281,7 +282,6 @@ const Setup = () => {
                                       className={cn(
                                         "focus:outline-[#3D408A] outline-[#3D408A]"
                                       )}
-                                      {...field}
                                     />
                                   </SelectTrigger>
                                   <SelectContent>
@@ -327,6 +327,7 @@ const Setup = () => {
                           <FormControl>
                             <Select>
                               <SelectTrigger
+                                {...field}
                                 className={cn(
                                   "outline-[#3D408A] focus:outline-[#3D408A] w-full"
                                 )}
@@ -337,7 +338,6 @@ const Setup = () => {
                                     "focus:outline-[#3D408A] outline-[#3D408A]",
                                     montserrat_lighter.className
                                   )}
-                                  {...field}
                                 />
                               </SelectTrigger>
                               <SelectContent>
@@ -386,7 +386,6 @@ const Setup = () => {
                                 placeholder="Location Coordinates"
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
-                                value={morningIframeValue}
                               />
 
                               <Image
@@ -458,7 +457,6 @@ const Setup = () => {
                                 placeholder="Evening Coordinates"
                                 className={cn("focus:outline-[#3D408A]")}
                                 {...field}
-                                value={eveningIframeValue}
                               />
 
                               <Image

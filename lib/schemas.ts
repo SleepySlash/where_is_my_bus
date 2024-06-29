@@ -28,8 +28,8 @@ export const profileSchema = z.object({
   lastname: z.string().min(2).max(10),
   rollno: z.string().min(10).max(10),
   dob: z.string().min(10).max(10),
-  gender: z.string().min(4).max(6),
+  gender: z.string().min(3).max(6),
   routeno: z.string(),
   stopCoordinates: z.string(),
-  eveningCoordinates: z.string(),
+  eveningCoordinates: z.string().optional(),
 });
