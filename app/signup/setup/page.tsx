@@ -75,25 +75,19 @@ const Setup = () => {
   const [stop, setStop] = useState("");
 
   useEffect(() => {
-    const handleMapForCoordinates = (event: any) => {
+    const handleMapForCoordinates = (event: MessageEvent) => {
       if (event.origin !== window.location.origin) return;
 
       const data = event.data;
 
       if (typeof data === "string") {
-        const coordinates = data.split(",");
-        if (coordinates.length === 2) {
-          const lat1 = coordinates[0];
-          const lat2 = coordinates[1];
-          console.log("Coordinates: ", lat1, lat2);
-          setIframe(false);
-          if (stop === "stopCoordinates") {
-            setMorningIframeValue(data);
-            console.log("morning " + morningIframeValue);
-          } else if (stop === "eveningCoordinates") {
-            setEveningIframeValue(data);
-            console.log("evening coordinates" + eveningIframeValue);
-          }
+        setIframe(false);
+        if (stop === "stopCoordinates") {
+          setMorningIframeValue(data);
+          form.setValue("stopCoordinates", data);
+        } else if (stop === "eveningCoordinates") {
+          setEveningIframeValue(data);
+          form.setValue("eveningCoordinates", data);
         } else {
           console.error("String data does not contain valid coordinates");
         }
@@ -101,18 +95,23 @@ const Setup = () => {
     };
 
     window.addEventListener("message", handleMapForCoordinates);
-  }, [eveningIframeValue, form, iframe, morningIframeValue, stop]);
+    return () => {
+      window.removeEventListener("message", handleMapForCoordinates);
+      // window.addEventListener("message", handleMapForCoordinates);
+    };
+  }, [stop, form]);
 
   const scrollToEveningStop = (event: any) => {
     event.preventDefault();
     setEveningStop(true);
-    document.getElementById("end")?.scrollIntoView({ behavior: "instant" });
+    document.getElementById("end")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const removeEveningStop = (event: any) => {
     event.preventDefault();
     setEveningStop(false);
-    form.resetField("eveningCoordinates");
+    setEveningIframeValue("");
+    form.setValue("eveningCoordinates", "");
   };
   return (
     <>
@@ -421,7 +420,9 @@ const Setup = () => {
                               <a
                                 href="#end"
                                 className="bg-transparent text-violetBlue font-bold underline"
-                                onClick={scrollToEveningStop}
+                                onClick={(e) => {
+                                  scrollToEveningStop(e);
+                                }}
                               >
                                 Click me
                               </a>
@@ -476,7 +477,7 @@ const Setup = () => {
                                 className="mx-5"
                                 onClick={() => {
                                   setIframe(true);
-                                  setStop("eveningCoordinates ");
+                                  setStop("eveningCoordinates");
                                 }}
                               />
                             </div>
@@ -488,7 +489,9 @@ const Setup = () => {
                                 href="#"
                                 id="end"
                                 className="text-violetBlue font-bold underline"
-                                onClick={removeEveningStop}
+                                onClick={(e) => {
+                                  removeEveningStop(e);
+                                }}
                               >
                                 Click to remove
                               </a>
