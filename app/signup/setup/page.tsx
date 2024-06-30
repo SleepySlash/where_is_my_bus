@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/select";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import error from "next/error";
 
 const montserrat = Montserrat({
   weight: "500",
@@ -76,7 +77,8 @@ const Setup = () => {
 
   useEffect(() => {
     const handleMapForCoordinates = (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return;
+      if (event.origin !== window.location.origin || event.data === "closeMap")
+        return;
 
       const data = event.data;
 
@@ -113,6 +115,51 @@ const Setup = () => {
     setEveningIframeValue("");
     form.setValue("eveningCoordinates", "");
   };
+
+  const getCurrentLocation = (event: any) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError, {
+        enableHighAccuracy: true,
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const showPosition = (position: any) => {
+    const latitude = position.coords.latitude.toFixed(7);
+    const longitude = position.coords.longitude.toFixed(7);
+    if (stop === "stopCoordinates") {
+      setMorningIframeValue("[" + latitude + ", " + longitude + "]");
+      form.setValue("stopCoordinates", "[" + latitude + ", " + longitude + "]");
+    } else if (stop === "eveningCoordinates") {
+      setEveningIframeValue("[" + latitude + ", " + longitude + "]");
+      form.setValue(
+        "eveningCoordinates",
+        "[" + latitude + ", " + longitude + "]"
+      );
+    } else {
+      console.error("String data does not contain valid coordinates");
+    }
+  };
+
+  function showError(error: any) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
+  }
+
   return (
     <>
       <div
@@ -394,6 +441,10 @@ const Setup = () => {
                                 width={40}
                                 height={10}
                                 className="mx-5"
+                                onClick={(e) => {
+                                  setStop("stopCoordinates");
+                                  getCurrentLocation(e);
+                                }}
                               />
 
                               <Image
@@ -465,6 +516,10 @@ const Setup = () => {
                                 width={40}
                                 height={10}
                                 className="mx-5"
+                                onClick={(e) => {
+                                  setStop("eveningCoordinates");
+                                  getCurrentLocation(e);
+                                }}
                               />
 
                               <Image
