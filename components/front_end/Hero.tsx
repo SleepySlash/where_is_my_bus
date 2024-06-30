@@ -8,7 +8,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="w-full">
-      <Image src={hero} alt="hero" className="w-full object-cover" />
+      <Image src={hero} alt="hero" className=" w-full" />
 
       <div className="flex flex-col items-center p-9 bg-grey w-full ">
         <div

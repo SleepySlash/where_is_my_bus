@@ -53,12 +53,12 @@ export default function Home() {
   }
 
   const router = useRouter();
-  const [user, setUser] = useState(false);
+  const [userAdmin, setUserAdmin] = useState(false);
 
   const [select, setSelect] = useState(false);
 
   const handleClick = () => {
-    if (user) {
+    if (userAdmin) {
       router.push("/admin/setup");
     } else {
       router.push("/signup/setup");
@@ -76,7 +76,7 @@ export default function Home() {
           >
             <div className="w-full flex-1 p-[1.5rem]">
               <p className={cn(" font-bold text-[#919191] text-xl")}>
-                {user ? "Adminstrator" : " Let's Get Started!"}
+                {userAdmin ? "Adminstrator" : " Let's Get Started!"}
               </p>
 
               <p className={cn("text-[#3D408A] text-5xl font-bold")}>Sign Up</p>
@@ -220,12 +220,13 @@ export default function Home() {
 
               <div className="flex flex-col items-center pt-2 text-violetBlue">
                 <p className="text-sm font-semibold">
-                  Are you {user ? "a Student" : " a Adminstrator"}?{" "}
+                  Are you {userAdmin ? "a Student" : " a Adminstrator"}?{" "}
                   <span className="text-[#3D408A] underline tracking-wide">
                     <Link
                       href="/signup"
                       onClick={() => {
-                        setUser(!user);
+                        router.refresh();
+                        setUserAdmin(!userAdmin);
                       }}
                     >
                       Login Here
