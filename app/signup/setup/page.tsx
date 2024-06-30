@@ -272,7 +272,7 @@ const Setup = () => {
                     )}
                   />
 
-                  <div className="flex justify-between items-center gap-4">
+                  <div className="flex justify-between w-full items-center gap-4">
                     <FormField
                       control={form.control}
                       name="dob"
@@ -293,7 +293,7 @@ const Setup = () => {
                                 id="Date of Birth"
                                 placeholder="DD/MM/YYYY"
                                 className={cn(
-                                  "focus:outline-[#3D408A] max-w-full"
+                                  "focus:outline-[#3D408A] min-w-full"
                                 )}
                                 {...field}
                               />
@@ -557,13 +557,15 @@ const Setup = () => {
                   />
                 </div>
               </div>
-              <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-24 z-20">
+              <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-20 z-20">
                 {/* <Link href="/" className="flex flex-col w-full px-6"> */}
                 <Button
                   type="submit"
                   variant={"blueg"}
                   size={"blueg"}
-                  className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]")}
+                  className={cn(
+                    "rounded-xl h-[3rem] w-[60%] shadow-2xl text-[1rem]"
+                  )}
                 >
                   <p>{user ? "Save" : "Proceed"}</p>
                 </Button>
