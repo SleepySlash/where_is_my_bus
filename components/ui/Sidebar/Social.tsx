@@ -13,7 +13,13 @@ const Social = ({
 }) => {
   return (
     <Link href={source}>
-      <Image src={icon} alt={alt} height={10} width={10} className="h-5 w-5" />
+      <Image
+        src={icon}
+        alt={alt}
+        height={10}
+        width={10}
+        className="h-5 w-5 md:h-7 md:w-7"
+      />
     </Link>
   );
 };

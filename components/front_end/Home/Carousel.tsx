@@ -14,12 +14,14 @@ import carousel_item4 from "@/public/carousel_item4.png";
 
 const CarouselSection = () => {
   return (
-    <div className="flex flex-col items-center py-10">
-      <h1 className="text-violetBlue text-4xl font-jua mb-3">Our Features</h1>
+    <div className="flex flex-col items-center py-10 md:px-10 md:min-h-[80vh] max-md:py-14 justify-evenly">
+      <h1 className="text-violetBlue md:text-5xl text-4xl font-jua mb-3">
+        Our Features
+      </h1>
 
       <Carousel opts={{ loop: true }} className="max-w-[100vw]">
         <CarouselContent className="-ml-3 ">
-          <CarouselItem className="flex flex-col items-center justify-center">
+          <CarouselItem className="flex flex-col items-center justify-center md:basis-1/3">
             <Image
               src={carousel_item1svg}
               alt="student"
@@ -30,14 +32,14 @@ const CarouselSection = () => {
               Tailored For College Life
             </h2>
 
-            <p className="text-justify text-sm font-kumbh_sans font-[400] text-[#545656] leading-4 w-[85%] mt-4">
+            <p className="text-justify  font-kumbh_sans font-[400] text-[#545656] leading-5 w-[85%] mt-4">
               Our solution is uniquely designed for college students, providing
               practical and student-focused functionalities that cater to their
               daily needs and challenges.{" "}
             </p>
           </CarouselItem>
 
-          <CarouselItem className="flex flex-col items-center justify-center">
+          <CarouselItem className="flex flex-col items-center justify-center md:basis-1/3">
             <Image
               src={carousel_item2svg}
               alt="student"
@@ -48,14 +50,14 @@ const CarouselSection = () => {
               Reliable Tracking{" "}
             </h2>
 
-            <p className="text-justify text-sm font-kumbh_sans font-[400] text-[#545656] leading-4 w-[85%] mt-4">
+            <p className="text-justify text-s font-kumbh_sans font-[400] text-[#545656] leading-5 w-[85%] mt-4">
               Our GPS technology ensures precise location tracking for accurate
               bus location updates. Continuous tracking ensures reliable updates
               even in areas with network issues.{" "}
             </p>
           </CarouselItem>
 
-          <CarouselItem className="flex flex-col items-center justify-center">
+          <CarouselItem className="flex flex-col items-center justify-center md:basis-1/3">
             <Image
               src={carousel_item3svg}
               alt="student"
@@ -66,14 +68,14 @@ const CarouselSection = () => {
               Real time precision{" "}
             </h2>
 
-            <p className="text-justify text-sm font-kumbh_sans font-[400] text-[#545656] leading-4 w-[85%] mt-4">
+            <p className="text-justify text-s font-kumbh_sans font-[400] text-[#545656] leading-5 w-[85%] mt-4">
               Our system offers real-time precision, ensuring students can
               efficiently plan their journeys with accurate and up-to-date bus
               locations, reducing waiting times.
             </p>
           </CarouselItem>
 
-          <CarouselItem className="flex flex-col items-center justify-center">
+          <CarouselItem className="flex flex-col items-center justify-center md:basis-1/3">
             <Image
               src={carousel_item4}
               alt="student"
@@ -84,7 +86,7 @@ const CarouselSection = () => {
               Secure data handling{" "}
             </h2>
 
-            <p className="text-justify text-sm font-kumbh_sans font-[400] text-[#545656] leading-4 w-[85%] mt-4">
+            <p className="text-justify text-s font-kumbh_sans font-[400] text-[#545656] leading-5 w-[85%] mt-4">
               Our encryption technology safeguards student location data,
               ensuring security and privacy. This ensures peace of mind for
               users, knowing their information is protected.{" "}
