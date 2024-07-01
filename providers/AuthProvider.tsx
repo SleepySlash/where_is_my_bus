@@ -14,6 +14,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         const x = await account.get();
         setUser(x);
+        console.log("User", x);
       } catch (error) {
         setUser(null);
         console.log(error);

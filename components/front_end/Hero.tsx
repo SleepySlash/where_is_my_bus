@@ -1,4 +1,5 @@
 import hero from "@/public/hero.svg";
+import pchero from "@/public/titleLogo.svg";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import location from "@/public/location.svg";
@@ -7,13 +8,18 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="w-full">
-      <Image src={hero} alt="hero" className=" w-full" />
+    <div className="w-full md:flex items-center md:bg-violetBlue justify-center">
+      <Image src={hero} alt="hero" className="w-full object-cover md:hidden" />
+      <Image
+        src={hero}
+        alt="hero"
+        className="w-[50vw] object-cover max-md:hidden"
+      />
 
-      <div className="flex flex-col items-center p-9 bg-grey w-full ">
+      <div className="flex flex-col items-center p-9 bg-grey w-full justify-center">
         <div
           className={
-            "group flex flex-col gap-7 text-violetBlue font-jua text-5xl"
+            "group flex flex-col gap-7 text-violetBlue font-jua text-5xl md:hidden"
           }
         >
           <div className="flex">
@@ -35,8 +41,17 @@ const Hero = () => {
             </span>
           </div>
         </div>
+        <Image
+          src={pchero}
+          alt="Company Logo"
+          className="w-[280px] mb-10 max-md:hidden"
+        />
 
-        <Link href="/signup" passHref className="-mt-12 w-full mx-10">
+        <Link
+          href="/signup"
+          passHref
+          className="max-md:-mt-12 w-full max-w-sm mx-10"
+        >
           <Button
             variant="outline"
             className="bg-yellowDark shadow-xl border-[1.5px] border-black w-full py-5"

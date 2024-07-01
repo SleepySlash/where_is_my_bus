@@ -11,43 +11,73 @@ import Item from "../ui/Sidebar/Item";
 import Social from "../ui/Sidebar/Social";
 import { account } from "@/lib/appwrite";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/providers/AuthProvider";
 
 interface NavbarProps {
   Route?: React.ReactNode;
   BusDetails?: React.ReactNode;
 }
 const Navbar = ({ Route, BusDetails }: NavbarProps) => {
+  const { user } = useUser();
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
   const logout = async () => {
-    await account.deleteSession("current");
+    try {
+      await account.deleteSession("current");
+    } catch (error) {
+      console.log(error);
+    }
+
     router.push("/");
   };
 
   return (
     <>
-      <div className="sticky top-0 z-[100] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5 shadow-md">
+      <div className="sticky top-0 z-[100] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5  md:px-10 md:py-5">
         <Link href="/" className="">
           <Image src={logo} alt="logo" className="cursor-pointer h-8 w-8" />
+          {/* <h4 className="font-jua text-yellowDark tracking-tighter md:text-2xl">
+            Where is my bus?
+          </h4> */}
         </Link>
 
-        {/* The Route Details will be sent as a React Component*/}
         <span>{Route}</span>
 
-        <Button onClick={logout}>Log out</Button>
+        <div className="flex gap-7 font-manrope font-[700] text-lg items-center text-violetBlue max-md:hidden">
+          <Link href={"/track"} className="hover:text-yellowLight">
+            Track
+          </Link>
+          <Link href={"/contact-us"} className="hover:text-yellowLight">
+            Contact Us
+          </Link>
+          <Link
+            href={"/profile"}
+            className={`${!user && "hidden"} hover:text-yellowLight`}
+          >
+            Profile
+          </Link>
+          <button
+            onClick={logout}
+            className={`${!user && "hidden"} hover:text-yellowLight`}
+          >
+            Log out
+          </button>
+          <Link href={"/sign-in"} className={`${user && "hidden"}`}>
+            Login
+          </Link>
+        </div>
 
         <Button
           onClick={() => setOpen(true)}
-          className="bg-transparent shadow-none hover:bg-transparent p-0"
+          className="bg-transparent shadow-none hover:bg-transparent p-0 md:hidden"
         >
           <Image src={settings} alt="settings" className="h-8 w-8" />
         </Button>
       </div>
 
-      {/* When there Route Details sent they have to be rendered as bar below the navbar  */}
       <div
-        className={`fixed top-0 right-0 min-h-[101vh] p-5 pr-10 bg-white min-w-[60vw] flex justify-between flex-col transition-all duration-200 z-[1000] ${
+        className={`fixed top-0 right-0 min-h-[101vh] p-5 pr-10 bg-white min-w-[60vw] flex justify-between flex-col transition-all duration-200 z-[1000] md:hidden ${
           !open ? "translate-x-[100%]" : ""
         }`}
       >
@@ -74,9 +104,17 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
               className="w-[7rem] aspect-square "
             />
           </div>
+          <Item name="Track" icon="/logo.svg" linkto="/track" />
           <Item name="Profile" icon="/user_blue.svg" linkto="/signup/setup" />
           <Item name="Contact Us" icon="/contact.svg" linkto="/contact-us" />
           <Item name="Install App" icon="/heart.svg" linkto="/" />
+          <Button
+            onClick={logout}
+            className={`${!user && "hidden"} w-full`}
+            variant={"outline"}
+          >
+            Log out
+          </Button>
         </div>
 
         <div className="flex flex-col gap-1 mb-10">

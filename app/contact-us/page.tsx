@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
+
 import Navbar from "@/components/front_end/Navbar";
 import { useToast } from "@/components/ui/use-toast";
+import hero from "@/public/hero.svg";
 
 import { contactSchema } from "@/lib/schemas";
 
@@ -56,81 +59,101 @@ const ContactUs = () => {
     console.log("Typed values: ", values);
   }
   return (
-    <div>
+    <div className="max-h-[100vh] overflow-clip">
       <Navbar />
 
-      <div className="mb-3 px-7 pt-4 pb-2 font-kumbh_sans min-h-[90vh] flex flex-col">
-        <h2 className="text-2xl text-[#919191] font-semibold">Any Queries?</h2>
-        <h1 className="text-5xl text-violetBlue font-bold mb-10">Contact Us</h1>
+      <div className="md:flex">
+        <Image
+          src={hero}
+          alt="hero"
+          className="object-cover max-md:hidden max-h-[94vh] max-w-[60vw]"
+        />
+        <div className="mb-3 px-7 md:p-16 pt-4 pb-2 font-kumbh_sans min-h-[90vh] flex flex-col flex-grow md:bg-violetBlue">
+          <h2 className="text-2xl text-[#919191] font-semibold">
+            Any Queries?
+          </h2>
+          <h1 className="text-5xl text-violetBlue md:text-yellowDark font-bold mb-10">
+            Contact Us
+          </h1>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className=" flex-grow flex flex-col justify-between"
-          >
-            <div className="flex flex-col gap-5 flex-grow ">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
-                      Your Name{" "}
-                      <span className="text-red-600 align-super">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="shadcn" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
-                      Email Id
-                      <span className="text-red-600 align-super">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter your email id" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-violetBlue font-bold text-base translate-y-7">
-                      Message{" "}
-                      <span className="text-red-600 align-super">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="shadcn"
-                        {...field}
-                        className="border border-violetBlue bg-white"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <Button
-              type="submit"
-              className="w-full bg-violetBlue rounded-xl text-white p-5 text-lg my-5"
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className=" flex-grow flex flex-col justify-between"
             >
-              Submit
-            </Button>
-          </form>
-        </Form>
+              <div className="flex flex-col gap-5 flex-grow text-violetBlue">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="md:text-yellowDark font-bold text-base translate-y-7">
+                        Your Name{" "}
+                        <span className="text-red-600 align-super">*</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="shadcn"
+                          {...field}
+                          className="md:border-yellowDark border-violetBlue  md:shadow-lg shadow-md"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="md:text-yellowDark font-bold text-base translate-y-7">
+                        Email Id
+                        <span className="text-red-600 align-super">*</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your email id"
+                          {...field}
+                          className="md:border-yellowDark border-violetBlue  md:shadow-lg shadow-md"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="md:text-yellowDark font-bold text-base translate-y-7">
+                        Message{" "}
+                        <span className="text-red-600 align-super">*</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Enter your message here..."
+                          {...field}
+                          className="border md:border-yellowDark border-violetBlue md:shadow-lg shadow-md bg-white rounded-lg"
+                          rows={5}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-violetBlue md:bg-yellowDark rounded-xl text-white md:text-violetBlue md:font-semibold p-5 text-lg my-5 md:shadow-lg shadow-md"
+              >
+                Submit
+              </Button>
+            </form>
+          </Form>
+        </div>
       </div>
     </div>
   );

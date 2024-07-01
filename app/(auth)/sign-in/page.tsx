@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Query } from "appwrite";
 import { env } from "process";
+import { useUser } from "@/providers/AuthProvider";
 
 const LoginPage = () => {
   const [loggedInUser, setLoggedInUser] = useState<any>(null);
@@ -14,15 +15,21 @@ const LoginPage = () => {
   const [userId, setUserId] = useState("");
   const router = useRouter();
   // const [loading, setLoading] = useState(true);
+  const { user, setUser } = useUser();
+  useEffect(() => {
+    if (user) {
+      redirect("/");
+    }
+  }, [user]);
 
   const sendOTP = async () => {
     let promise = databases.listDocuments(
-      "66726ed900109d1aa8fd",
-      "6675050c003a9e8459f2",
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_USERS_COLLECTION_ID!,
       [Query.equal("Phone", "+91" + mobile)]
     );
     promise.then(
-      function (response) {
+      async function (response) {
         if (response.documents.length > 0) {
           setName("User is Authorized");
 
@@ -50,8 +57,14 @@ const LoginPage = () => {
 
   const login = async () => {
     await account.createSession(userId, secret);
-    const x = await account.get();
-    setLoggedInUser(x);
+    try {
+      const x = await account.get();
+      setUser(x);
+      setLoggedInUser(x);
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log("Logged in");
   };
 
