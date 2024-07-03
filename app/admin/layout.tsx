@@ -1,5 +1,6 @@
 "use client";
 import { account } from "@/lib/appwrite";
+import { useUser } from "@/providers/AuthProvider";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -7,22 +8,14 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { user } = useUser();
   useEffect(() => {
-    const getSession = async () => {
-      const x = await account.get();
-      if (!x.labels.includes("admin")) {
-        router.push("/");
-      }
-      setLoading(false);
-    };
-    if (!loggedInUser) {
-      getSession();
+    if (user && !user.labels.includes("admin")) {
+      console.log("not admin", user.labels);
+      router.push("/");
     }
-  }, [loggedInUser, router]);
-  if (loading) {
-    return <div>Checking Authorization</div>;
-  }
+  }, [user, router]);
+
   return <div>{children}</div>;
 };
 

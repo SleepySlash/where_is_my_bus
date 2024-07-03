@@ -18,11 +18,33 @@ export const adminAccountSchema = z.object({
   role: z.string().min(5).max(25),
 });
 
-export const createUserSchema = z.object({
-  name: z.string().min(2).max(50).optional(),
+export const createStudentSchema = z.object({
   phone: z.string().min(10).max(10),
-  rollNumber: z.string().min(2).max(50),
+  rollNumber: z.string().min(2, "Must give complete roll number").max(50),
+  p1Phone: z
+    .string()
+    .max(10)
+    .optional()
+    .refine((val) => val === "" || val!.length >= 10, {
+      message: "p1Phone must be at least 10 characters or left empty",
+    }),
+  p2Phone: z
+    .string()
+    .max(10)
+    .optional()
+    .refine((val) => val === "" || val!.length >= 10, {
+      message: "p2Phone must be at least 10 characters or left empty",
+    }),
 });
+
+export const createFacultySchema = z.object({
+  phone: z
+    .string()
+    .min(10, "Enter a valid phone number")
+    .max(10, "Enter a valid phone number"),
+  rollNumber: z.string().min(2, "Enter valid roll number").max(50),
+});
+
 export const profileSchema = z.object({
   firstname: z.string().min(2).max(50).optional(),
   lastname: z.string().min(2).max(10),
