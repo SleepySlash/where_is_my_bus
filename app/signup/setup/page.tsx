@@ -161,416 +161,424 @@ const Setup = () => {
   return (
     <>
       <div
-        className={`relative flex flex-col font-kumbh_sans ${
+        className={`relative flex flex-col justify-center w-full md:max-h-full items-center font-kumbh_sans md:bg-white ${
           iframe ? "hidden" : ""
         }`}
       >
         <Navbar />
+        <div className="flex flex-row justify-between w-full min-h-screen gap-0 relative  items-center bg-white ">
+          <Image
+            src={"/home.svg"}
+            alt={"bus stop"}
+            width={2}
+            height={2}
+            className="size-36 max-md:translate-y-[15px] md:h-full md:object-cover max-md:hidden md:w-[50vw] "
+          />
+          <div className="flex flex-col w-full justify-between max-md:min-h-[93vh] max-md:w-full items-center font-bold">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="flex flex-col flex-grow justify-between gap-1 w-full h-full"
+              >
+                <div className="w-full flex-1 p-[1.5rem]">
+                  <p className={cn(" font-bold text-[#919191] text-xl")}>
+                    Account Details
+                  </p>
 
-        <div className="flex flex-col justify-between min-h-[93vh] items-center font-bold">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="flex flex-col flex-grow justify-between gap-1 w-full h-full"
-            >
-              <div className="w-full flex-1 p-[1.5rem]">
-                <p className={cn(" font-bold text-[#919191] text-xl")}>
-                  Account Details
-                </p>
+                  <p className={cn("text-[#3D408A] text-5xl font-bold")}>
+                    {user ? "My" : "Setup"} Profile
+                  </p>
 
-                <p className={cn("text-[#3D408A] text-5xl font-bold")}>
-                  {user ? "My" : "Setup"} Profile
-                </p>
-
-                <br />
-                <div className="pt-[2rem] w-full flex flex-col items-center justify-center z-20 gap-[1.3rem]">
-                  <FormField
-                    control={form.control}
-                    name="firstname"
-                    render={({ field }) => (
-                      <FormItem className=" w-full">
-                        <div>
-                          <FormLabel
-                            htmlFor="FirstName"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3"
-                            )}
-                          >
-                            First Name
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              id="firstName"
-                              placeholder="Enter your First Name"
-                              className={cn("focus:outline-[#3D408A]")}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="lastname"
-                    render={({ field }) => (
-                      <FormItem className=" w-full">
-                        <div>
-                          <FormLabel
-                            htmlFor="Last Name"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3"
-                            )}
-                          >
-                            Last Name
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              id="firstName"
-                              placeholder="Enter your Last Name"
-                              className={cn("focus:outline-[#3D408A]")}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="rollno"
-                    render={({ field }) => (
-                      <FormItem className=" w-full">
-                        <div>
-                          <FormLabel
-                            htmlFor="Roll No"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3"
-                            )}
-                          >
-                            Roll No
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              id="rollno"
-                              placeholder="Enter your Roll No"
-                              className={cn("focus:outline-[#3D408A]")}
-                              {...field}
-                            />
-                          </FormControl>
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <div className="flex justify-between w-full items-center gap-4">
+                  <br />
+                  <div className="pt-[2rem] w-full flex flex-col items-center justify-center z-20 gap-[1.3rem]">
                     <FormField
                       control={form.control}
-                      name="dob"
+                      name="firstname"
                       render={({ field }) => (
                         <FormItem className=" w-full">
                           <div>
                             <FormLabel
-                              htmlFor="Date of Birth"
+                              htmlFor="FirstName"
                               className={cn(
                                 " text-violetBlue font-semibold pl-3"
                               )}
                             >
-                              Date of Birth
+                              First Name
                             </FormLabel>
                             <FormControl>
                               <Input
-                                type="dob"
-                                id="Date of Birth"
-                                placeholder="DD/MM/YYYY"
-                                className={cn(
-                                  "focus:outline-[#3D408A] min-w-full"
-                                )}
+                                type="text"
+                                id="firstName"
+                                placeholder="Enter your First Name"
+                                className={cn("focus:outline-[#3D408A]")}
                                 {...field}
                               />
-                            </FormControl>
-                          </div>
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="gender"
-                      render={({ field }) => (
-                        <FormItem className="w-full">
-                          <div>
-                            <FormLabel
-                              htmlFor="Gender"
-                              className={cn(
-                                " text-violetBlue font-semibold pl-3"
-                              )}
-                            >
-                              Gender
-                            </FormLabel>
-                            <FormControl>
-                              <div className="w-full">
-                                <Select
-                                  onValueChange={field.onChange}
-                                  defaultValue={field.value}
-                                  {...field}
-                                >
-                                  <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
-                                    <SelectValue
-                                      placeholder="Select Gender"
-                                      className={cn(
-                                        "focus:outline-[#3D408A] outline-[#3D408A]"
-                                      )}
-                                    />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectGroup>
-                                      {gender_.map((gen) => (
-                                        <SelectItem
-                                          key={gen.id}
-                                          value={gen.name}
-                                          className={cn(
-                                            "focus:outline-none",
-                                            montserrat.className
-                                          )}
-                                        >
-                                          {gen.name}
-                                        </SelectItem>
-                                      ))}
-                                    </SelectGroup>
-                                  </SelectContent>
-                                </Select>
-                              </div>
                             </FormControl>
                             <FormMessage />
                           </div>
                         </FormItem>
                       )}
                     />
-                  </div>
 
-                  <FormField
-                    control={form.control}
-                    name="routeno"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <div className="w-full flex flex-col">
-                          <FormLabel
-                            htmlFor="Bus Route"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3 pb-1"
-                            )}
-                          >
-                            Bus Route
-                          </FormLabel>
-                          <FormControl>
-                            <Select>
-                              <SelectTrigger
+                    <FormField
+                      control={form.control}
+                      name="lastname"
+                      render={({ field }) => (
+                        <FormItem className=" w-full">
+                          <div>
+                            <FormLabel
+                              htmlFor="Last Name"
+                              className={cn(
+                                " text-violetBlue font-semibold pl-3"
+                              )}
+                            >
+                              Last Name
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="text"
+                                id="firstName"
+                                placeholder="Enter your Last Name"
+                                className={cn("focus:outline-[#3D408A]")}
                                 {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="rollno"
+                      render={({ field }) => (
+                        <FormItem className=" w-full">
+                          <div>
+                            <FormLabel
+                              htmlFor="Roll No"
+                              className={cn(
+                                " text-violetBlue font-semibold pl-3"
+                              )}
+                            >
+                              Roll No
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="text"
+                                id="rollno"
+                                placeholder="Enter your Roll No"
+                                className={cn("focus:outline-[#3D408A]")}
+                                {...field}
+                              />
+                            </FormControl>
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="flex justify-between w-full items-center gap-4">
+                      <FormField
+                        control={form.control}
+                        name="dob"
+                        render={({ field }) => (
+                          <FormItem className=" w-full">
+                            <div>
+                              <FormLabel
+                                htmlFor="Date of Birth"
                                 className={cn(
-                                  "outline-[#3D408A] focus:outline-[#3D408A] w-full"
+                                  " text-violetBlue font-semibold pl-3"
                                 )}
                               >
-                                <SelectValue
-                                  placeholder="Select Route"
+                                Date of Birth
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="dob"
+                                  id="Date of Birth"
+                                  placeholder="DD/MM/YYYY"
                                   className={cn(
-                                    "focus:outline-[#3D408A] outline-[#3D408A]",
-                                    montserrat_lighter.className
+                                    "focus:outline-[#3D408A] min-w-full"
                                   )}
+                                  {...field}
                                 />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectGroup>
-                                  {array.map((_, ind) => (
-                                    <SelectItem
-                                      key={ind}
-                                      value={`${ind + 1}`}
-                                      className={cn(
-                                        "focus:outline-none",
-                                        montserrat.className
-                                      )}
-                                    >
-                                      Route No {ind + 1}
-                                    </SelectItem>
-                                  ))}
-                                </SelectGroup>
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="stopCoordinates"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <div>
-                          <FormLabel
-                            htmlFor="Bus Stop"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3"
-                            )}
-                          >
-                            Bus Stop
-                          </FormLabel>
-                          <FormControl>
-                            <div className="w-full justify-between flex relative">
-                              <Input
-                                type="text"
-                                id="stopCoordinates"
-                                placeholder="Location Coordinates"
-                                className={cn("focus:outline-[#3D408A]")}
-                                {...field}
-                              />
-
-                              <Image
-                                src={"/myLocation.svg"}
-                                alt={"my location"}
-                                width={40}
-                                height={10}
-                                className="mx-5"
-                                onClick={(e) => {
-                                  setStop("stopCoordinates");
-                                  getCurrentLocation(e);
-                                }}
-                              />
-
-                              <Image
-                                src={"/map.svg"}
-                                alt={"pick location"}
-                                width={38}
-                                height={10}
-                                className="mx-5"
-                                onClick={() => {
-                                  setIframe(true);
-                                  setStop("stopCoordinates");
-                                }}
-                              />
+                              </FormControl>
                             </div>
-                          </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="gender"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <div>
+                              <FormLabel
+                                htmlFor="Gender"
+                                className={cn(
+                                  " text-violetBlue font-semibold pl-3"
+                                )}
+                              >
+                                Gender
+                              </FormLabel>
+                              <FormControl>
+                                <div className="w-full">
+                                  <Select
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                    {...field}
+                                  >
+                                    <SelectTrigger className="outline-[#3D408A] focus:outline-[#3D408A] h-10 rounded-lg">
+                                      <SelectValue
+                                        placeholder="Select Gender"
+                                        className={cn(
+                                          "focus:outline-[#3D408A] outline-[#3D408A]"
+                                        )}
+                                      />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectGroup>
+                                        {gender_.map((gen) => (
+                                          <SelectItem
+                                            key={gen.id}
+                                            value={gen.name}
+                                            className={cn(
+                                              "focus:outline-none",
+                                              montserrat.className
+                                            )}
+                                          >
+                                            {gen.name}
+                                          </SelectItem>
+                                        ))}
+                                      </SelectGroup>
+                                    </SelectContent>
+                                  </Select>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="routeno"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <div className="w-full flex flex-col">
+                            <FormLabel
+                              htmlFor="Bus Route"
+                              className={cn(
+                                " text-violetBlue font-semibold pl-3 pb-1"
+                              )}
+                            >
+                              Bus Route
+                            </FormLabel>
+                            <FormControl>
+                              <Select>
+                                <SelectTrigger
+                                  {...field}
+                                  className={cn(
+                                    "outline-[#3D408A] focus:outline-[#3D408A] w-full"
+                                  )}
+                                >
+                                  <SelectValue
+                                    placeholder="Select Route"
+                                    className={cn(
+                                      "focus:outline-[#3D408A] outline-[#3D408A]",
+                                      montserrat_lighter.className
+                                    )}
+                                  />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectGroup>
+                                    {array.map((_, ind) => (
+                                      <SelectItem
+                                        key={ind}
+                                        value={`${ind + 1}`}
+                                        className={cn(
+                                          "focus:outline-none",
+                                          montserrat.className
+                                        )}
+                                      >
+                                        Route No {ind + 1}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectGroup>
+                                </SelectContent>
+                              </Select>
+                            </FormControl>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="stopCoordinates"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <div>
+                            <FormLabel
+                              htmlFor="Bus Stop"
+                              className={cn(
+                                " text-violetBlue font-semibold pl-3"
+                              )}
+                            >
+                              Bus Stop
+                            </FormLabel>
+                            <FormControl>
+                              <div className="w-full justify-between flex relative">
+                                <Input
+                                  type="text"
+                                  id="stopCoordinates"
+                                  placeholder="Location Coordinates"
+                                  className={cn("focus:outline-[#3D408A]")}
+                                  {...field}
+                                />
+
+                                <Image
+                                  src={"/myLocation.svg"}
+                                  alt={"my location"}
+                                  width={40}
+                                  height={10}
+                                  className="mx-5"
+                                  onClick={(e) => {
+                                    setStop("stopCoordinates");
+                                    getCurrentLocation(e);
+                                  }}
+                                />
+
+                                <Image
+                                  src={"/map.svg"}
+                                  alt={"pick location"}
+                                  width={38}
+                                  height={10}
+                                  className="mx-5"
+                                  onClick={() => {
+                                    setIframe(true);
+                                    setStop("stopCoordinates");
+                                  }}
+                                />
+                              </div>
+                            </FormControl>
+                            <div
+                              className={`w-full text-sm text-end pt-1 ${
+                                !eveningStop ? "" : "hidden"
+                              } `}
+                            >
+                              <span className="text-[#9CA3AF]">
+                                Is your Evening Stop different?{" "}
+                                <Link
+                                  href={"#end"}
+                                  className="bg-transparent text-violetBlue font-bold underline"
+                                  onClick={(e) => {
+                                    scrollToEveningStop(e);
+                                  }}
+                                >
+                                  Click me
+                                </Link>
+                              </span>
+                            </div>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="eveningCoordinates"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
                           <div
-                            className={`w-full text-sm text-end pt-1 ${
-                              !eveningStop ? "" : "hidden"
-                            } `}
+                            className={` ${!eveningStop ? "hidden" : "w-full"}`}
                           >
-                            <span className="text-[#9CA3AF]">
-                              Is your Evening Stop different?{" "}
-                              <Link
-                                href={"#end"}
-                                className="bg-transparent text-violetBlue font-bold underline"
-                                onClick={(e) => {
-                                  scrollToEveningStop(e);
-                                }}
-                              >
-                                Click me
-                              </Link>
-                            </span>
-                          </div>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
+                            <FormLabel
+                              htmlFor="Evening Stop"
+                              className={cn(
+                                " text-violetBlue font-semibold pl-3"
+                              )}
+                            >
+                              Evening Stop
+                            </FormLabel>
+                            <FormControl>
+                              <div className="w-full justify-between flex relative">
+                                <Input
+                                  type="text"
+                                  id="eveningCoordinates"
+                                  placeholder="Evening Coordinates"
+                                  className={cn("focus:outline-[#3D408A]")}
+                                  {...field}
+                                />
 
-                  <FormField
-                    control={form.control}
-                    name="eveningCoordinates"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <div
-                          className={` ${!eveningStop ? "hidden" : "w-full"}`}
-                        >
-                          <FormLabel
-                            htmlFor="Evening Stop"
-                            className={cn(
-                              " text-violetBlue font-semibold pl-3"
-                            )}
-                          >
-                            Evening Stop
-                          </FormLabel>
-                          <FormControl>
-                            <div className="w-full justify-between flex relative">
-                              <Input
-                                type="text"
-                                id="eveningCoordinates"
-                                placeholder="Evening Coordinates"
-                                className={cn("focus:outline-[#3D408A]")}
-                                {...field}
-                              />
+                                <Image
+                                  src={"/myLocation.svg"}
+                                  alt={"my location"}
+                                  width={40}
+                                  height={10}
+                                  className="mx-5"
+                                  onClick={(e) => {
+                                    setStop("eveningCoordinates");
+                                    getCurrentLocation(e);
+                                  }}
+                                />
 
-                              <Image
-                                src={"/myLocation.svg"}
-                                alt={"my location"}
-                                width={40}
-                                height={10}
-                                className="mx-5"
-                                onClick={(e) => {
-                                  setStop("eveningCoordinates");
-                                  getCurrentLocation(e);
-                                }}
-                              />
-
-                              <Image
-                                src={"/map.svg"}
-                                alt={"pick location"}
-                                width={38}
-                                height={10}
-                                className="mx-5"
-                                onClick={() => {
-                                  setIframe(true);
-                                  setStop("eveningCoordinates");
-                                }}
-                              />
+                                <Image
+                                  src={"/map.svg"}
+                                  alt={"pick location"}
+                                  width={38}
+                                  height={10}
+                                  className="mx-5"
+                                  onClick={() => {
+                                    setIframe(true);
+                                    setStop("eveningCoordinates");
+                                  }}
+                                />
+                              </div>
+                            </FormControl>
+                            <div className="w-full text-[#9CA3AF] text-end text-sm pt-1">
+                              <span>
+                                No Evening stop?{" "}
+                                <a
+                                  href="#"
+                                  id="end"
+                                  className="text-violetBlue font-bold underline"
+                                  onClick={(e) => {
+                                    removeEveningStop(e);
+                                  }}
+                                >
+                                  Click to remove
+                                </a>
+                              </span>
                             </div>
-                          </FormControl>
-                          <div className="w-full text-[#9CA3AF] text-end text-sm pt-1">
-                            <span>
-                              No Evening stop?{" "}
-                              <a
-                                href="#"
-                                id="end"
-                                className="text-violetBlue font-bold underline"
-                                onClick={(e) => {
-                                  removeEveningStop(e);
-                                }}
-                              >
-                                Click to remove
-                              </a>
-                            </span>
+                            <FormMessage />
                           </div>
-                          <FormMessage />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="sticky w-full flex bottom-0 items-center justify-center bg-white min-h-20 z-20">
-                {/* <Link href="/" className="flex flex-col w-full px-6"> */}
-                <Button
-                  type="submit"
-                  variant={"blueg"}
-                  size={"blueg"}
-                  className={cn(
-                    "rounded-xl h-[3rem] w-[60%] shadow-2xl text-[1rem]"
-                  )}
-                >
-                  <p>{user ? "Save" : "Proceed"}</p>
-                </Button>
-                {/* </Link> */}
-              </div>
-            </form>
-          </Form>
+                <div className="max-md:sticky w-full flex bottom-0 items-center justify-center bg-white min-h-20 z-20">
+                  {/* <Link href="/" className="flex flex-col w-full px-6"> */}
+                  <Button
+                    type="submit"
+                    variant={"blueg"}
+                    size={"blueg"}
+                    className={cn(
+                      "rounded-xl h-[3rem] w-[60%] shadow-2xl text-[1rem]"
+                    )}
+                  >
+                    <p>{user ? "Save" : "Proceed"}</p>
+                  </Button>
+                  {/* </Link> */}
+                </div>
+              </form>
+            </Form>
+          </div>
         </div>
       </div>
 
