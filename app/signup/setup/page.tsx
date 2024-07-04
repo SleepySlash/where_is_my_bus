@@ -107,7 +107,6 @@ const Setup = () => {
   const scrollToEveningStop = (event: any) => {
     event.preventDefault();
     setEveningStop(true);
-    document.getElementById("end")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const removeEveningStop = (event: any) => {
@@ -466,15 +465,15 @@ const Setup = () => {
                           >
                             <span className="text-[#9CA3AF]">
                               Is your Evening Stop different?{" "}
-                              <a
-                                href="#end"
+                              <Link
+                                href={"#end"}
                                 className="bg-transparent text-violetBlue font-bold underline"
                                 onClick={(e) => {
                                   scrollToEveningStop(e);
                                 }}
                               >
                                 Click me
-                              </a>
+                              </Link>
                             </span>
                           </div>
                           <FormMessage />
