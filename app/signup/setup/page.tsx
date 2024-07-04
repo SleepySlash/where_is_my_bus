@@ -87,8 +87,10 @@ const Setup = () => {
         if (stop === "stopCoordinates") {
           setMorningIframeValue(data);
           form.setValue("stopCoordinates", data);
+          setStop("");
         } else if (stop === "eveningCoordinates") {
           setEveningIframeValue(data);
+          setStop("");
           form.setValue("eveningCoordinates", data);
         } else {
           console.error("String data does not contain valid coordinates");
@@ -99,7 +101,6 @@ const Setup = () => {
     window.addEventListener("message", handleMapForCoordinates);
     return () => {
       window.removeEventListener("message", handleMapForCoordinates);
-      // window.addEventListener("message", handleMapForCoordinates);
     };
   }, [stop, form]);
 
@@ -129,17 +130,15 @@ const Setup = () => {
   const showPosition = (position: any) => {
     const latitude = position.coords.latitude.toFixed(7);
     const longitude = position.coords.longitude.toFixed(7);
+    const pos = latitude + "," + longitude;
     if (stop === "stopCoordinates") {
-      setMorningIframeValue("[" + latitude + ", " + longitude + "]");
-      form.setValue("stopCoordinates", "[" + latitude + ", " + longitude + "]");
+      setMorningIframeValue(pos);
+      form.setValue("stopCoordinates", pos);
+      setStop("");
     } else if (stop === "eveningCoordinates") {
-      setEveningIframeValue("[" + latitude + ", " + longitude + "]");
-      form.setValue(
-        "eveningCoordinates",
-        "[" + latitude + ", " + longitude + "]"
-      );
-    } else {
-      console.error("String data does not contain valid coordinates");
+      setEveningIframeValue(pos);
+      form.setValue("eveningCoordinates", pos);
+      setStop("");
     }
   };
 
