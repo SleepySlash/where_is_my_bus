@@ -45,25 +45,40 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
         <span>{Route}</span>
 
         <div className="flex gap-7 font-manrope font-[700] text-lg items-center text-violetBlue max-md:hidden">
-          <Link href={"/track"} className="hover:text-yellowLight">
+          <Link
+            href={"/track"}
+            className="scale-100 duration-300 hover:scale-110"
+          >
             Track
           </Link>
-          <Link href={"/contact-us"} className="hover:text-yellowLight">
+          <Link
+            href={"/contact-us"}
+            className="scale-100 duration-300 hover:scale-110"
+          >
             Contact Us
           </Link>
           <Link
             href={"/profile"}
-            className={`${!user && "hidden"} hover:text-yellowLight`}
+            className={`${
+              !user && "hidden"
+            } scale-100 duration-300 hover:scale-110`}
           >
             Profile
           </Link>
           <button
             onClick={logout}
-            className={`${!user && "hidden"} hover:text-yellowLight`}
+            className={`${
+              !user && "hidden"
+            } scale-100 duration-300 hover:scale-110`}
           >
             Log out
           </button>
-          <Link href={"/sign-in"} className={`${user && "hidden"}`}>
+          <Link
+            href={"/sign-in"}
+            className={`${
+              user && "hidden"
+            }scale-100 duration-300 hover:scale-110`}
+          >
             Login
           </Link>
         </div>
