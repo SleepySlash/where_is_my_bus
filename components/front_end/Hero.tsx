@@ -5,15 +5,16 @@ import { Button } from "../ui/button";
 import location from "@/public/location.svg";
 import arrow_down from "@/public/arrow_down.svg";
 import Link from "next/link";
+import logo_hero from "@/public/logo_hero.svg";
 
 const Hero = () => {
   return (
-    <div className="w-full md:flex items-center md:bg-violetBlue justify-center">
+    <div className="w-full md:flex items-center md:bg-white justify-center">
       <Image src={hero} alt="hero" className="w-full object-cover md:hidden" />
       <Image
-        src={hero}
+        src={logo_hero}
         alt="hero"
-        className="w-[50vw] object-cover max-md:hidden"
+        className="ml-10 w-[50vw] object-cover max-md:hidden rounded-full"
       />
 
       <div className="flex flex-col items-center p-9 bg-grey w-full justify-center">
@@ -41,11 +42,38 @@ const Hero = () => {
             </span>
           </div>
         </div>
-        <Image
+        {/* <Image
           src={pchero}
           alt="Company Logo"
           className="w-[280px] mb-10 max-md:hidden"
-        />
+        /> */}
+        <div
+          className={
+            "group flex flex-col gap-7 text-violetBlue font-jua text-5xl max-md:hidden"
+          }
+        >
+          <div className="flex">
+            <span className="text-[4.5rem] relative tracking-tighter">
+              {" "}
+              Where is
+            </span>
+            <span
+              className="transform rotate-45 font-medium text-[6rem] group-hover:text-yellowDark relative bottom-5"
+              style={{ transform: "rotate(-35deg)" }}
+            >
+              {" "}
+              ?{" "}
+            </span>
+          </div>
+
+          <div className="flex relative bottom-[4rem]">
+            <span className="text-[3.5rem]"> my </span>
+            <span className="text-[6.3rem] pt-1 pl-2 font-normal group-hover:text-yellowDark">
+              {" "}
+              BUS{" "}
+            </span>
+          </div>
+        </div>
 
         <Link
           href="/signup"
