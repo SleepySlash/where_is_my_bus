@@ -205,42 +205,25 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="w-full mt-8 items-center flex-1 justify-center relative">
-              <div className="w-full flex flex-col  px-[1.5rem] ">
-                <Button
-                  type="submit"
-                  variant={"blueg"}
-                  size={"blueg"}
-                  className={cn("rounded-xl h-[3rem] shadow-2xl text-[1rem]  ")}
-                  // onClick={handleClick}
-                >
-                  Sign Up
-                </Button>
-              </div>
-
-              <div className="flex flex-col items-center pt-2 text-violetBlue">
-                <p className="text-sm font-semibold">
-                  Are you {userAdmin ? "a Student" : " a Adminstrator"}?{" "}
-                  <span className="text-[#3D408A] underline tracking-wide">
-                    <Link
-                      href="/signup"
-                      onClick={() => {
-                        router.refresh();
-                        setUserAdmin(!userAdmin);
-                      }}
-                    >
-                      Login Here
-                    </Link>
-                  </span>
-                </p>
-              </div>
+            <div className="w-full  relative">
+              <Button
+                type="submit"
+                variant={"blueg"}
+                size={"blueg"}
+                className={cn(
+                  "rounded-xl h-[3rem] shadow-2xl text-[1rem] w-[90%] mb-5 mx-auto"
+                )}
+                // onClick={handleClick}
+              >
+                Next
+              </Button>
 
               <Image
                 src={"/Ellipse.svg"}
                 alt={"Ellipse"}
                 width={767}
                 height={10}
-                className="w-full object-cover absolute bottom-0 left-0 right-0 z-[-1]"
+                className="w-full object-contain absolute bottom-0 left-0 right-0 z-[-1]"
               />
             </div>
           </form>

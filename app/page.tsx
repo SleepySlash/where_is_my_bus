@@ -21,7 +21,6 @@ const HomePage = () => {
 
   return (
     <div className="transition-all">
-      <Navbar />
       <Hero />
       <Home />
     </div>

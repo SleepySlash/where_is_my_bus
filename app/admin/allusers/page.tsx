@@ -30,7 +30,6 @@ const BusSelection = () => {
 
   return (
     <div className="h-[100vh] w-[100vw] font-manrope text-violetBlue mx-auto">
-      <Navbar />
       <div>
         <div className="flex justify-between items-center px-5 py-2">
           <h1 className="text-2xl font-semibold text-center mt-1 md:text-3xl">

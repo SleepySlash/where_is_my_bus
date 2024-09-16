@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/providers/AuthProvider";
+import Navbar from "@/components/front_end/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
         className={` ${jua.variable} ${manrope.variable} ${kumbh_sans.variable} bg-gray-100`}
       >
         <AuthProvider>
+          <Navbar />
           {children}
           <Toaster />
         </AuthProvider>

@@ -12,7 +12,6 @@ const Menu = () => {
   const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <Navbar />
       <div className="min-h-[93vh] flex flex-col gap-2 p-7">
         <div className="overflow-hidden relative">
           <Image src={locate} alt="locate" className="" />

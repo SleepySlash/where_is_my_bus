@@ -34,7 +34,7 @@ const Navbar = ({ Route, BusDetails }: NavbarProps) => {
 
   return (
     <>
-      <div className="sticky top-0 z-[100] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5  md:px-10 md:py-5">
+      <div className="sticky top-0 z-[100] w-full min-h-[7vh] flex justify-between items-center bg-white py-2 px-5  md:px-10 md:py-5 shadow-md">
         <Link href="/" className="">
           <Image src={logo} alt="logo" className="cursor-pointer h-8 w-8" />
           {/* <h4 className="font-jua text-yellowDark tracking-tighter md:text-2xl">

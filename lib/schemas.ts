@@ -52,11 +52,20 @@ export const createFacultySchema = z.object({
   rollNumber: z.string().min(2, "Enter valid roll number").max(50),
 });
 
+export const OTPSchema = z.object({
+  pin: z.string().min(6, {
+    message: "Your one-time password must be 6 characters.",
+  }),
+});
+
 export const profileSchema = z.object({
-  firstname: z.string().min(2).max(50).optional(),
+  firstname: z.string().min(2).max(50),
   lastname: z.string().min(2).max(10),
   rollno: z.string().min(10).max(10),
-  dob: z.string().min(10).max(10),
+  dob: z
+    .string()
+    .min(10, { message: "Enter a valid date" })
+    .max(10, { message: "Enter a valid date" }),
   gender: z.string().min(3).max(6),
   routeno: z.string(),
   stopCoordinates: z.string(),

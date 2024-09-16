@@ -97,7 +97,7 @@ export function DataTable<TData, TValue>({
     <div>
       <div className="flex items-center py-4 gap-1">
         <Input
-          placeholder="Filter emails and status..."
+          placeholder="Filter by roll or phone number"
           value={globalFilter}
           onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm flex-grow"
